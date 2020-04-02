@@ -34,7 +34,7 @@ public class TileAdapter extends RecyclerView.Adapter<TileAdapter.TileViewHolder
     public TileViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         //inflating and returning our view holder
         LayoutInflater inflater = LayoutInflater.from(mCtx);
-        View view = inflater.inflate(R.layout.tile_layout, null);
+        View view = inflater.inflate(R.layout.image_card_layout, null);
         return new TileViewHolder(view);
     }
 
@@ -45,6 +45,7 @@ public class TileAdapter extends RecyclerView.Adapter<TileAdapter.TileViewHolder
 
         //binding the data with the viewholder views
         holder.textViewTitle.setText(tile.getTitle());
+        holder.imageView.setImageDrawable(mCtx.getResources().getDrawable(tile.getImage()));
 
     }
 
@@ -64,6 +65,14 @@ public class TileAdapter extends RecyclerView.Adapter<TileAdapter.TileViewHolder
             super(itemView);
 
             textViewTitle = itemView.findViewById(R.id.title);
+
+            imageView = itemView.findViewById(R.id.imageView);
+//            imageView = itemView.findViewById(R.id.favorite_button);
+//            imageView = itemView.findViewById(R.id.bookmark_button);
+//            imageView = itemView.findViewById(R.id.share_button);
+
+
+
         }
     }
 }
