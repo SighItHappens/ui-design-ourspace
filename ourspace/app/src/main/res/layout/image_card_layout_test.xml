@@ -38,14 +38,14 @@
                     android:textSize="14dp"
                     android:text="mumbiker.nikkhil"/>
 
-                <ImageButton
-                    android:layout_marginLeft="220dp"
-                    android:background="@android:color/transparent"
-                    android:tint="@android:color/darker_gray"
-                    android:layout_marginTop="10dp"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:src="@drawable/snowman"/>
+<!--                <ImageButton-->
+<!--                    android:layout_marginLeft="220dp"-->
+<!--                    android:background="@android:color/transparent"-->
+<!--                    android:tint="@android:color/darker_gray"-->
+<!--                    android:layout_marginTop="10dp"-->
+<!--                    android:layout_width="30dp"-->
+<!--                    android:layout_height="30dp"-->
+<!--                    android:src="@drawable/snowman"/>-->
 
             </LinearLayout>
 
@@ -87,7 +87,7 @@
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:layout_marginTop="10dp"
-                    android:layout_marginStart="235dp"
+                    android:layout_marginStart="8dp"
                     app:srcCompat="@drawable/ic_bookmark_black_24dp"/>
 
             </LinearLayout>
