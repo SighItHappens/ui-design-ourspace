@@ -12,4 +12,8 @@
     <string name="menu_slideshow">Slideshow</string>
 
     <string name="home_second">Home Second</string>
+
+    <string name="add_tv_show">TV Show</string>
+    <string name="add_music">Music</string>
+    <string name="add_note">Note</string>
 </resources>
