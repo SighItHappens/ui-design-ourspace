@@ -28,22 +28,19 @@ public class HomeViewModel extends ViewModel {
         //adding some items to our list
         tileList.add(
                 new Tile(
-                        1,
-                        "Item1",
-                        R.drawable.two_and_a_half_men));
+                        "Mommy","2 HOURS AGO","Dad","#sundayfunday #snowman",
+                        2,R.drawable.snowman,R.drawable.snowman,R.drawable.snowman,R.drawable.snowman));
 
 
         tileList.add(
                 new Tile(
-                        1,
-                        "Item2",
-                        R.drawable.two_and_a_half_men));
+                        "Mommy","2 HOURS AGO","Dad","#sundayfunday #snowman",
+                        2,R.drawable.snowman,R.drawable.snowman,R.drawable.snowman,R.drawable.snowman));
 
         tileList.add(
                 new Tile(
-                        1,
-                        "Item2",
-                        R.drawable.two_and_a_half_men));
+                        "Mommy","2 HOURS AGO","Dad","#sundayfunday #snowman",
+                        2,R.drawable.snowman,R.drawable.snowman,R.drawable.snowman,R.drawable.snowman));
         mList.setValue(tileList);
     }
 
