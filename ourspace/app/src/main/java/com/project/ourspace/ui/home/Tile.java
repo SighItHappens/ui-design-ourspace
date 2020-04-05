@@ -31,6 +31,8 @@ public class Tile {
 
     }
 
+    //Make constructors for each type of tile
+
 //    public int getId() {
 //        return id;
 //    }
