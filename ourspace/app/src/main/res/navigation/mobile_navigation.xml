@@ -17,9 +17,9 @@
     </fragment>
     <fragment
         android:id="@+id/nav_home_second"
-        android:name="com.project.ourspace.ui.home.HomeSecondFragment"
+        android:name="com.project.ourspace.ui.music.MusicFragment"
         android:label="@string/home_second"
-        tools:layout="@layout/fragment_home_second">
+        tools:layout="@layout/fragment_music">
         <action
             android:id="@+id/action_HomeSecondFragment_to_HomeFragment"
             app:destination="@id/nav_home" />
@@ -40,4 +40,10 @@
         android:name="com.project.ourspace.ui.slideshow.SlideshowFragment"
         android:label="@string/menu_slideshow"
         tools:layout="@layout/fragment_slideshow" />
+    <fragment
+        android:id="@+id/nav_music"
+        android:name="com.project.ourspace.ui.music.MusicFragment"
+        android:label="@string/music"
+        tools:layout="@layout/fragment_music" />
+
 </navigation>
