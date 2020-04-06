@@ -8,7 +8,8 @@
     <fragment
         android:id="@+id/nav_home"
         android:name="com.project.ourspace.ui.home.HomeFragment"
-        android:label="@string/menu_home"
+        android:label="@string/family_wall"
+        android:icon="@drawable/ic_group_white_24dp"
         tools:layout="@layout/fragment_home">
 
         <action
