@@ -17,4 +17,7 @@
     <string name="song_name">song_name</string>
     <string name="song_url">song_url</string>
     <string name="music_title">Music</string>
+    <string name="add_tv_show">TV Show</string>
+    <string name="add_music">Music</string>
+    <string name="add_note">Note</string>
 </resources>
