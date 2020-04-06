@@ -9,34 +9,29 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <RelativeLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <LinearLayout
-                android:orientation="horizontal"
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/uploader_pro_pic"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_margin="10dp"
+                android:src="@drawable/snowman"
+                app:civ_border_width="1dp"
+                app:civ_border_color="@android:color/darker_gray"
+                />
+
+            <TextView
+                android:id="@+id/tv_uploader_name"
+                android:layout_marginTop="15dp"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-
-                <de.hdodenhof.circleimageview.CircleImageView
-                    android:id="@+id/uploader_pro_pic"
-                    android:layout_width="35dp"
-                    android:layout_height="35dp"
-                    android:layout_margin="10dp"
-                    android:src="@drawable/snowman"
-                    app:civ_border_width="1dp"
-                    app:civ_border_color="@android:color/darker_gray"
-                    />
-
-                <TextView
-                    android:id="@+id/tv_uploader_name"
-                    android:layout_marginTop="15dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="@android:color/black"
-                    android:textStyle="bold"
-                    android:textSize="14dp"
-                    android:text="mumbiker.nikkhil"/>
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/black"
+                android:textStyle="bold"
+                android:textSize="14dp"
+                android:text="mumbiker.nikkhil"/>
 
 <!--                <ImageButton-->
 <!--                    android:layout_marginLeft="220dp"-->
@@ -47,9 +42,7 @@
 <!--                    android:layout_height="30dp"-->
 <!--                    android:src="@drawable/snowman"/>-->
 
-            </LinearLayout>
-
-        </RelativeLayout>
+        </LinearLayout>
 
         <ImageView
             android:id="@+id/post_pic"
@@ -58,9 +51,6 @@
             android:scaleType="centerCrop"
             android:src="@drawable/snowman"/>
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
 
             <LinearLayout
                 android:orientation="horizontal"
@@ -91,12 +81,6 @@
                     app:srcCompat="@drawable/ic_theaters_black_24dp"/>
 
             </LinearLayout>
-
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
 
             <LinearLayout
                 android:orientation="horizontal"
@@ -146,12 +130,6 @@
                     android:text="2 others"/>
             </LinearLayout>
 
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
             <TextView
                 android:id="@+id/tv_uploader_name_caption"
                 android:layout_width="85dp"
@@ -172,8 +150,6 @@
                 android:layout_marginRight="20dp"
                 android:textColor="#000080"
                 android:text="#sundayfunday #beach #relax #biking #mnsquad"/>
-
-        </RelativeLayout>
 
         <TextView
             android:id="@+id/tv_time"

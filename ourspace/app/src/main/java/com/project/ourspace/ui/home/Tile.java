@@ -1,47 +1,43 @@
 package com.project.ourspace.ui.home;
 
 public class Tile {
-//    private int id;
-//    private String title;
-//    private int image;
+    // Generic Fields
+    private int type;
     private String Name;
     private String Time;
-    private String LikedBy;
-    private String Tags;
 
-    private int Likes;
-    private int ProPic;
-    private int LikerPic;
-    private int UploaderPic;
-    private int PostPic;
+    // Image fields
+    private String image;
 
-    public Tile(String name, String time, String likedBy, String tags, int likes, int proPic, int likerPic, int uploaderPic, int postPic) {
-//        this.id = id;
-//        this.title = title;
-//        this.image= image;
-        Name = name;
-        Time = time;
-        LikedBy = likedBy;
-        Tags = tags;
-        Likes = likes;
-        ProPic = proPic;
-        LikerPic = likerPic;
-        UploaderPic = uploaderPic;
-        PostPic = postPic;
+    // Song fields
+    private String song_name;
+    private String artist_name;
+    private String song_link;
 
+
+    //Constructor for the image tile
+    // Type = 1
+    public Tile(int type, String Name, String Time, String image) {
+        this.type = type;
+        this.Name = Name;
+        this.Time = Time;
+        this.image = image;
+    }
+
+    //Constructor for the Song type
+    // Type = 2
+    public Tile(int type, String name, String Time, String song_name, String artist_name, String song_link) {
+        this.type = type;
+        this. Name = name;
+        this.Time = Time;
+        this.song_name = song_name;
+        this.artist_name = artist_name;
+        this.song_link = song_link;
     }
 
     //Make constructors for each type of tile
 
-//    public int getId() {
-//        return id;
-//    }
-//
-//    public String getTitle() {
-//        return title;
-//    }
-//
-//    public int getImage() {return image;}
+
     public String getName() {
     return Name;
 }
@@ -58,60 +54,43 @@ public class Tile {
         Time = time;
     }
 
-    public String getLikedBy() {
-        return LikedBy;
+
+    public String getImage() {
+        return image;
+    }
+    public void setImage(String _image) {
+        image = _image;
     }
 
-    public void setLikedBy(String likedBy) {
-        LikedBy = likedBy;
+    public int getType() {
+        return type;
+    }
+    public void setType(int Type) {
+        type = Type;
     }
 
-    public String getTags() {
-        return Tags;
+    public String getSong_name() {
+        return song_name;
     }
 
-    public void setTags(String tags) {
-        Tags = tags;
+    public void setSong_name(String song_name) {
+        this.song_name = song_name;
     }
 
-    public int getLikes() {
-        return Likes;
+    public String getArtist_name() {
+        return artist_name;
     }
 
-    public void setLikes(int likes) {
-        Likes = likes;
+    public void setArtist_name(String artist_name) {
+        this.artist_name = artist_name;
     }
 
-    public int getProPic() {
-        return ProPic;
+    public String getSong_link() {
+        return song_link;
     }
 
-    public void setProPic(int proPic) {
-        ProPic = proPic;
-    }
-
-    public int getLikerPic() {
-        return LikerPic;
-    }
-
-    public void setLikerPic(int likerPic) {
-        LikerPic = likerPic;
-    }
-
-    public int getUploaderPic() {
-        return UploaderPic;
-    }
-
-    public void setUploaderPic(int uploaderPic) {
-        UploaderPic = uploaderPic;
-    }
-
-    public int getPostPic() {
-        return PostPic;
-    }
-
-    public void setPostPic(int postPic) {
-        PostPic = postPic;
+    public void setSong_link(String song_link) {
+        this.song_link = song_link;
     }
 }
 

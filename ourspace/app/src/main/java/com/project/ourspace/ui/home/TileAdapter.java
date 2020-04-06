@@ -12,15 +12,15 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.RequestManager;
+import com.project.ourspace.MainActivity;
 import com.project.ourspace.R;
-
-import java.util.List;
 
 import java.util.List;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
-public class TileAdapter extends RecyclerView.Adapter<TileAdapter.TileViewHolder> {
+
+public class TileAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
 
     //this context we will use to inflate the layout
@@ -28,47 +28,101 @@ public class TileAdapter extends RecyclerView.Adapter<TileAdapter.TileViewHolder
 
     //we are storing all the products in a list
     private List<Tile> tileList;
-    RequestManager glide;
 
     //getting the context and product list with constructor
     public TileAdapter(Context mCtx, List<Tile> tileList) {
         this.mCtx = mCtx;
         this.tileList = tileList;
-        this.glide = Glide.with(mCtx);
     }
 
+    @NonNull
     @Override
-    public TileViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         //inflating and returning our view holder
         LayoutInflater inflater = LayoutInflater.from(mCtx);
-        View view = inflater.inflate(R.layout.image_card_layout_test, null);
-        return new TileViewHolder(view);
+        if (viewType == 1) {
+            View view = inflater.inflate(R.layout.image_card_layout, null);
+            return new ImageViewHolder(view);
+        } else if (viewType == 2) {
+            View view = inflater.inflate(R.layout.song_card_layout, null);
+            return new SongViewHolder(view);
+        }
+        return null;
     }
 
     @Override
-    public void onBindViewHolder(TileViewHolder holder, int position) {
-        //getting the product of the specified position
-        Tile tile = tileList.get(position);
+    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
+        if (getItemViewType(position) == 1 ) {
+            ((ImageViewHolder) holder).setImageDetails(tileList.get(position));
+        } else if (getItemViewType(position) == 2) {
+            ((SongViewHolder) holder).setSongDetails(tileList.get(position));
+        }
+    }
 
-        //binding the data with the viewholder views
-//        holder.textViewTitle.setText(tile.getTitle());
-//        holder.imageView.setImageDrawable(mCtx.getResources().getDrawable(tile.getImage()));
+    class ImageViewHolder extends RecyclerView.ViewHolder {
 
-        holder.uploadername.setText(tile.getName());
-        holder.likername.setText(tile.getLikedBy());
-        holder.posttime.setText(tile.getTime());
-        holder.likes.setText(tile.getLikes()+" others");
-        holder.captionnames.setText(tile.getName());
-        holder.tags.setText(tile.getTags());
-        glide.load(tile.getUploaderPic()).into(holder.uploader);
-        glide.load(tile.getLikerPic()).into(holder.liker);
-        glide.load(tile.getPostPic()).into(holder.post);
+        private TextView posted_by;
+        private TextView Time;
+        private ImageView image;
 
+        ImageViewHolder(@NonNull View itemView) {
+            super(itemView);
+            posted_by = itemView.findViewById(R.id.posted_by);
+            Time = itemView.findViewById(R.id.date);
+            image = itemView.findViewById(R.id.image);
+        }
 
-
+        private void setImageDetails(Tile tile) {
+            posted_by.setText(tile.getName());
+            Time.setText((tile.getTime()));
+            int resId = mCtx.getResources().getIdentifier(
+                    tile.getImage(),
+                    "drawable",
+                    mCtx.getPackageName()
+            );
+            System.out.println(resId);
+            image.setImageResource(resId);
+        }
 
     }
 
+    class SongViewHolder extends RecyclerView.ViewHolder {
+
+        private TextView posted_by;
+        private TextView Time;
+        private TextView song_name;
+        private TextView artist_name;
+        private TextView song_link;
+
+        SongViewHolder(@NonNull View itemView) {
+            super(itemView);
+            posted_by = itemView.findViewById(R.id.posted_by);
+            Time = itemView.findViewById(R.id.date);
+            song_name = itemView.findViewById(R.id.song_name);
+            artist_name = itemView.findViewById(R.id.artist_name);
+            song_link = itemView.findViewById(R.id.song_link);
+        }
+
+        private void setSongDetails(Tile tile) {
+            posted_by.setText(tile.getName());
+            Time.setText(tile.getTime());
+            song_name.setText(tile.getSong_name());
+            artist_name.setText(tile.getArtist_name());
+            song_link.setText(tile.getSong_link());
+        }
+    }
+
+    @Override
+    public int getItemViewType(int position) {
+        if (tileList.get(position).getType() == 1) {
+            return 1;
+
+        } else if (tileList.get(position).getType() == 2) {
+            return 2;
+        } else {
+            return 0;
+        }
+    }
 
     @Override
     public int getItemCount() {
@@ -76,37 +130,5 @@ public class TileAdapter extends RecyclerView.Adapter<TileAdapter.TileViewHolder
     }
 
 
-    class TileViewHolder extends RecyclerView.ViewHolder {
 
-//        TextView textViewTitle, textViewShortDesc, textViewRating, textViewPrice;
-//        ImageView imageView;
-        TextView uploadername,likername,posttime,likes,captionnames,tags;
-        CircleImageView uploader,userpic,liker;
-        ImageView post;
-
-        public TileViewHolder(@NonNull View itemView) {
-            super(itemView);
-
-//            textViewTitle = itemView.findViewById(R.id.title);
-//
-//            imageView = itemView.findViewById(R.id.imageView);
-////            imageView = itemView.findViewById(R.id.favorite_button);
-////            imageView = itemView.findViewById(R.id.bookmark_button);
-////            imageView = itemView.findViewById(R.id.share_button);
-            uploadername=(TextView) itemView.findViewById(R.id.tv_uploader_name);
-            likername=(TextView) itemView.findViewById(R.id.liker_name);
-            posttime=(TextView) itemView.findViewById(R.id.tv_time);
-            likes=(TextView) itemView.findViewById(R.id.tv_likes);
-            captionnames=(TextView) itemView.findViewById(R.id.tv_uploader_name_caption);
-            tags=(TextView) itemView.findViewById(R.id.tv_tags);
-
-            uploader=(CircleImageView) itemView.findViewById(R.id.uploader_pro_pic);
-            liker=(CircleImageView) itemView.findViewById(R.id.liker_pro_pic);
-
-            post=(ImageView) itemView.findViewById(R.id.post_pic);
-
-
-
-        }
-    }
 }

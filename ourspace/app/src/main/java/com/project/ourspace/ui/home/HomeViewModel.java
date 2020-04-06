@@ -24,23 +24,22 @@ public class HomeViewModel extends ViewModel {
 
         tileList = new ArrayList<>();
 
-
         //adding some items to our list
         tileList.add(
                 new Tile(
-                        "Mommy","2 HOURS AGO","Dad","#sundayfunday #snowman",
-                        2,R.drawable.snowman,R.drawable.snowman,R.drawable.snowman,R.drawable.snowman));
+                         1, "Jake", "04/04/20", "filler"));
 
 
         tileList.add(
                 new Tile(
-                        "Mommy","2 HOURS AGO","Dad","#sundayfunday #snowman",
-                        2,R.drawable.snowman,R.drawable.snowman,R.drawable.snowman,R.drawable.snowman));
+                        1, "Jacob", "04/03/20", "snowman"));
 
         tileList.add(
                 new Tile(
-                        "Mommy","2 HOURS AGO","Dad","#sundayfunday #snowman",
-                        2,R.drawable.snowman,R.drawable.snowman,R.drawable.snowman,R.drawable.snowman));
+                        2, "Sam", "04/05/20", "Eleven", "Khalid", "https://example.spotify.songlink"
+                )
+        );
+
         mList.setValue(tileList);
     }
 
