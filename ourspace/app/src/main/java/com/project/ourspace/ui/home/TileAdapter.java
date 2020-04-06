@@ -1,9 +1,13 @@
 package com.project.ourspace.ui.home;
 
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
+import android.text.method.LinkMovementMethod;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -92,7 +96,7 @@ public class TileAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         private TextView Time;
         private TextView song_name;
         private TextView artist_name;
-        private TextView song_link;
+        private Button song_link;
 
         SongViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -103,12 +107,21 @@ public class TileAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             song_link = itemView.findViewById(R.id.song_link);
         }
 
-        private void setSongDetails(Tile tile) {
+        private void setSongDetails(final Tile tile) {
             posted_by.setText(tile.getName());
             Time.setText(tile.getTime());
             song_name.setText(tile.getSong_name());
             artist_name.setText(tile.getArtist_name());
-            song_link.setText(tile.getSong_link());
+            song_link.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent();
+                    intent.setAction(Intent.ACTION_VIEW);
+                    intent.addCategory(Intent.CATEGORY_BROWSABLE);
+                    intent.setData(Uri.parse(tile.getSong_link()));
+                    mCtx.startActivity(intent);
+                }
+            });
         }
     }
 

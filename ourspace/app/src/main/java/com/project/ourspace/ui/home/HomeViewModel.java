@@ -15,14 +15,13 @@ public class HomeViewModel extends ViewModel {
 
     private MutableLiveData<String> mText;
     private MutableLiveData<List<Tile>> mList;
-    private List<Tile> tileList;
 
     public HomeViewModel() {
         mText = new MutableLiveData<>();
         mText.setValue("This is home fragment");
         mList = new MutableLiveData<>();
 
-        tileList = new ArrayList<>();
+        List<Tile> tileList = new ArrayList<>();
 
         //adding some items to our list
         tileList.add(
@@ -36,7 +35,7 @@ public class HomeViewModel extends ViewModel {
 
         tileList.add(
                 new Tile(
-                        2, "Sam", "04/05/20", "Eleven", "Khalid", "https://example.spotify.songlink"
+                        2, "Sam", "04/05/20", "Eleven", "Khalid", "https://open.spotify.com/track/1ToprX3cpBiXoAe5eNSk74?si=AELZvNrpQ1eNaFio74RJ8Q"
                 )
         );
 
