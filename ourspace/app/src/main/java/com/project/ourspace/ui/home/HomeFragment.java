@@ -8,10 +8,11 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
-import androidx.appcompat.widget.Toolbar;
 
 import com.project.ourspace.R;
 
@@ -32,6 +33,8 @@ public class HomeFragment extends Fragment {
                 textView.setText(s);
             }
         });
+        ActionBar actionBar = ((AppCompatActivity)getActivity()).getSupportActionBar();
+        actionBar.setIcon(R.drawable.ic_group_white_24dp);
         return root;
     }
 }
