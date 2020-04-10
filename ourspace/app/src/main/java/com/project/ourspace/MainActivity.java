@@ -3,11 +3,17 @@ package com.project.ourspace;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Menu;
+import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
+import com.leinardi.android.speeddial.SpeedDialActionItem;
+import com.leinardi.android.speeddial.SpeedDialOverlayLayout;
+import com.leinardi.android.speeddial.SpeedDialView;
 
+import androidx.annotation.StringRes;
+import androidx.core.content.res.ResourcesCompat;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -27,14 +33,9 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         toolbar.setLogo(R.drawable.ic_blank_24dp);
         setSupportActionBar(toolbar);
-        FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+
+        initSpeedDial();
+
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
         // Passing each menu ID as a set of Ids because each
@@ -60,5 +61,49 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
+    }
+
+    private void initSpeedDial() {
+        SpeedDialView speedDialView = findViewById(R.id.speedDial);
+        SpeedDialOverlayLayout overlay = findViewById(R.id.speedDialOverlay);
+        speedDialView.setOverlayLayout(overlay);
+
+        createSpeedDialItem(speedDialView, R.id.fab_add_tv_show, R.drawable.ic_videocam_black_24dp, R.string.add_tv_show, R.color.primaryDarkColor, R.color.material_white_1000);
+        createSpeedDialItem(speedDialView, R.id.fab_add_music, R.drawable.ic_music_note_white_24dp, R.string.add_music, R.color.primaryDarkColor, R.color.material_white_1000);
+        createSpeedDialItem(speedDialView, R.id.fab_new_note, R.drawable.ic_note_white_24dp, R.string.add_note, R.color.primaryDarkColor, R.color.material_white_1000);
+
+        final Toast toast = Toast.makeText(getApplicationContext(), "Replace with your own TV action", Toast.LENGTH_SHORT);
+
+        speedDialView.setOnActionSelectedListener(new SpeedDialView.OnActionSelectedListener() {
+            @Override
+            public boolean onActionSelected(SpeedDialActionItem speedDialActionItem) {
+                switch (speedDialActionItem.getId()) {
+                    case R.id.fab_add_tv_show:
+                        toast.setText("Custom TV action");
+                        toast.show();
+                        return false;
+                    case R.id.fab_add_music:
+                        toast.setText("Custom Music action");
+                        toast.show();
+                        return false;
+                    case R.id.fab_new_note:
+                        toast.setText("Custom Note action");
+                        toast.show();
+                        return false;
+                    default:
+                        return false;
+                }
+            }
+        });
+    }
+
+    private void createSpeedDialItem(SpeedDialView speedDialView, int id, int icon, int label, int background, int foreground) {
+        speedDialView.addActionItem(
+                new SpeedDialActionItem.Builder(id, icon)
+                        .setLabel(label)
+                        .setFabBackgroundColor(ResourcesCompat.getColor(getResources(), background, getTheme()))
+                        .setFabImageTintColor(ResourcesCompat.getColor(getResources(), foreground, getTheme()))
+                        .create()
+        );
     }
 }

@@ -16,4 +16,8 @@
     <string name="family_wall">Family Wall</string>
     <string name="my_wall">My Wall</string>
     <string name="ask_help">Ask Help</string>
+
+    <string name="add_tv_show">TV Show</string>
+    <string name="add_music">Music</string>
+    <string name="add_note">Note</string>
 </resources>
