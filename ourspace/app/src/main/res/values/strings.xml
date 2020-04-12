@@ -20,4 +20,6 @@
     <string name="add_tv_show">TV Show</string>
     <string name="add_music">Music</string>
     <string name="add_note">Note</string>
+    <string name="search_tv_show">Enter a show name</string>
+    <string name="button_tv_send">Search</string>
 </resources>
