@@ -1,5 +1,6 @@
 package com.project.ourspace;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Menu;
@@ -11,6 +12,7 @@ import com.google.android.material.navigation.NavigationView;
 import com.leinardi.android.speeddial.SpeedDialActionItem;
 import com.leinardi.android.speeddial.SpeedDialOverlayLayout;
 import com.leinardi.android.speeddial.SpeedDialView;
+import com.project.ourspace.ui.music.CreateMusic;
 
 import androidx.annotation.StringRes;
 import androidx.core.content.res.ResourcesCompat;
@@ -62,6 +64,11 @@ public class MainActivity extends AppCompatActivity {
                 || super.onSupportNavigateUp();
     }
 
+    private void musicCreator() {
+        Intent intent = new Intent(this, CreateMusic.class);
+        startActivity(intent);
+    }
+
     private void initSpeedDial() {
         SpeedDialView speedDialView = findViewById(R.id.speedDial);
         SpeedDialOverlayLayout overlay = findViewById(R.id.speedDialOverlay);
@@ -84,6 +91,7 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.fab_add_music:
                         toast.setText("Custom Music action");
                         toast.show();
+                        musicCreator();
                         return false;
                     case R.id.fab_new_note:
                         toast.setText("Custom Note action");
