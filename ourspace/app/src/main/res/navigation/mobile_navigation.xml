@@ -8,7 +8,8 @@
     <fragment
         android:id="@+id/nav_home"
         android:name="com.project.ourspace.ui.home.HomeFragment"
-        android:label="@string/menu_home"
+        android:label="@string/family_wall"
+        android:icon="@drawable/ic_group_white_24dp"
         tools:layout="@layout/fragment_home">
 
         <action
@@ -32,18 +33,18 @@
     <fragment
         android:id="@+id/nav_gallery"
         android:name="com.project.ourspace.ui.gallery.GalleryFragment"
-        android:label="@string/menu_gallery"
+        android:label="@string/my_wall"
         tools:layout="@layout/fragment_gallery" />
 
     <fragment
         android:id="@+id/nav_slideshow"
         android:name="com.project.ourspace.ui.slideshow.SlideshowFragment"
-        android:label="@string/menu_slideshow"
+        android:label="@string/action_settings"
         tools:layout="@layout/fragment_slideshow" />
-    <fragment
-        android:id="@+id/nav_music"
-        android:name="com.project.ourspace.ui.music.MusicFragment"
-        android:label="@string/music"
-        tools:layout="@layout/fragment_music" />
 
+    <fragment
+        android:id="@+id/nav_logout"
+        android:name="com.project.ourspace.ui.logout.LogoutFragment"
+        android:label="@string/logout"
+        tools:layout="@layout/fragment_logout" />
 </navigation>

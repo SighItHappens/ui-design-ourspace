@@ -2,8 +2,10 @@ package com.project.ourspace;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
+import android.util.Log;
 import android.view.Menu;
+import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -15,16 +17,25 @@ import com.leinardi.android.speeddial.SpeedDialView;
 import com.project.ourspace.ui.music.CreateMusic;
 
 import androidx.annotation.StringRes;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.res.ResourcesCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
-import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
+
+import com.google.android.material.navigation.NavigationView;
+import com.leinardi.android.speeddial.SpeedDialActionItem;
+import com.leinardi.android.speeddial.SpeedDialOverlayLayout;
+import com.leinardi.android.speeddial.SpeedDialView;
+import com.project.ourspace.data.LoginRepository;
+import com.project.ourspace.data.model.LoggedInUser;
 
 public class MainActivity extends AppCompatActivity {
+
+    private static final String TAG = "MainActivity";
 
     private AppBarConfiguration mAppBarConfiguration;
 
@@ -33,16 +44,20 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
+        toolbar.setLogo(R.drawable.ic_blank_24dp);
         setSupportActionBar(toolbar);
 
         initSpeedDial();
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
+
+        initUserProfile(navigationView);
+
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow)
+                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow, R.id.nav_logout)
                 .setDrawerLayout(drawer)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
@@ -68,6 +83,17 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, CreateMusic.class);
         startActivity(intent);
     }
+    
+    private void initUserProfile(NavigationView navigationView) {
+        View headerView = navigationView.getHeaderView(0);
+        LoggedInUser user = LoginRepository.getInstance().getUserDetails();
+
+        TextView displayName = headerView.findViewById(R.id.headerUserDisplayName);
+        displayName.setText(user.getDisplayName());
+
+        TextView userEmail = headerView.findViewById(R.id.headerUserEmail);
+        userEmail.setText(user.getUserEmail());
+    }
 
     private void initSpeedDial() {
         SpeedDialView speedDialView = findViewById(R.id.speedDial);
@@ -79,6 +105,7 @@ public class MainActivity extends AppCompatActivity {
         createSpeedDialItem(speedDialView, R.id.fab_new_note, R.drawable.ic_note_white_24dp, R.string.add_note, R.color.primaryDarkColor, R.color.material_white_1000);
 
         final Toast toast = Toast.makeText(getApplicationContext(), "Replace with your own TV action", Toast.LENGTH_SHORT);
+        final Intent createNoteIntent = new Intent(this, CreateNoteActivity.class);
 
         speedDialView.setOnActionSelectedListener(new SpeedDialView.OnActionSelectedListener() {
             @Override
@@ -94,14 +121,14 @@ public class MainActivity extends AppCompatActivity {
                         musicCreator();
                         return false;
                     case R.id.fab_new_note:
-                        toast.setText("Custom Note action");
-                        toast.show();
+                        startActivity(createNoteIntent);
                         return false;
                     default:
                         return false;
                 }
             }
         });
+        Log.d(TAG, "Speed Dial Initiation complete");
     }
 
     private void createSpeedDialItem(SpeedDialView speedDialView, int id, int icon, int label, int background, int foreground) {
