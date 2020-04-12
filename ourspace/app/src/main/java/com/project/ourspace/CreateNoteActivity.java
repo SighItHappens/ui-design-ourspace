@@ -1,6 +1,7 @@
 package com.project.ourspace;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProviders;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,6 +12,11 @@ import android.widget.TextView;
 
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
+import com.project.ourspace.data.LoginDataSource;
+import com.project.ourspace.data.LoginRepository;
+import com.project.ourspace.data.model.LoggedInUser;
+import com.project.ourspace.ui.login.LoginViewModel;
+import com.project.ourspace.ui.login.LoginViewModelFactory;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -43,6 +49,9 @@ public class CreateNoteActivity extends AppCompatActivity {
         TextInputLayout noteTitle = findViewById(R.id.createNoteTitleText);
         String titleString = noteTitle.getEditText().getText().toString();
 
+        LoggedInUser userDetails = LoginRepository.getInstance().getUserDetails();
+
+        Log.d(TAG, "Retrieved Note Owner: " + userDetails.getDisplayName());
         Log.d(TAG, "Retrieved Title Text: " + titleString);
         Log.d(TAG, "Retrieved Content Text: " + contentString);
 
