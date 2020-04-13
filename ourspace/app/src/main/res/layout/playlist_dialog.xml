@@ -5,10 +5,10 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".ui.music.CreateMusic" >
+    tools:context=".ui.music.CreateSong" >
 
         <EditText
-            android:id="@+id/edit_songname"
+            android:id="@+id/edit_single_songname"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -22,7 +22,7 @@
             android:inputType="text" />
 
         <EditText
-            android:id="@+id/edit_artistname"
+            android:id="@+id/edit_single_artistname"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -31,13 +31,13 @@
             android:textAlignment="center"
             android:textSize="20sp"
             android:hint="Artist name"
-            app:layout_constraintTop_toBottomOf="@id/edit_songname"
+            app:layout_constraintTop_toBottomOf="@id/edit_single_songname"
             android:autofillHints=""
             android:inputType="text"
             />
 
         <EditText
-            android:id="@+id/edit_songurl"
+            android:id="@+id/edit_single_songurl"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -47,7 +47,7 @@
             android:textSize="20sp"
             android:inputType="textUri"
             android:hint="(Optional) Song URL"
-            app:layout_constraintTop_toBottomOf="@id/edit_artistname"
+            app:layout_constraintTop_toBottomOf="@id/edit_single_artistname"
             android:autofillHints=""
             />
 

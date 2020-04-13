@@ -46,9 +46,9 @@ public class CreateMusicDialog extends DialogFragment {
                         listener.applyTexts(songname, artistname, songurl);
                     }
                 });
-        editSongName = view.findViewById(R.id.edit_songname);
-        editArtistName = view.findViewById(R.id.edit_artistname);
-        editSongUrl = view.findViewById(R.id.edit_songurl);
+        editSongName = view.findViewById(R.id.edit_single_songname);
+        editArtistName = view.findViewById(R.id.edit_single_artistname);
+        editSongUrl = view.findViewById(R.id.edit_single_songurl);
         return builder.create();
     }
 

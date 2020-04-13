@@ -5,177 +5,67 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.music.CreateMusic">
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/createNoteTitleText"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginBottom="8dp"
-            app:boxBackgroundColor="@null"
-            app:layout_constraintBottom_toTopOf="@+id/createNoteContentText"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:startIconDrawable="@drawable/ic_link_white_24dp">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Title" />
-        </com.google.android.material.textfield.TextInputLayout>
+    tools:context=".ui.music.CreateSong">
 
         <EditText
-            android:id="@+id/createNoteContentText"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="16dp"
-            android:background="@null"
-            android:ems="10"
-            android:gravity="start|top"
-            android:hint="Add Content"
-            android:inputType="textMultiLine"
-            app:layout_constraintBottom_toTopOf="@+id/button"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/createNoteTitleText" />
-
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/button"
+            android:id="@+id/edit_single_songname"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            app:cardBackgroundColor="@null"
-            app:cardCornerRadius="0dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/createNoteContentText">
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="80dp"
+            android:layout_marginEnd="8dp"
+            android:textSize="20sp"
+            android:theme="@style/AppTheme"
+            android:hint="Song Name"
+            app:layout_constraintTop_toTopOf="parent"
+            android:autofillHints=""
+            android:inputType="text"
+            >
+        </EditText>
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
+        <EditText
+            android:id="@+id/edit_single_artistname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="80dp"
+            android:layout_marginEnd="8dp"
+            android:textSize="20sp"
+            android:theme="@style/AppTheme"
+            android:hint="Artist Name"
+            app:layout_constraintTop_toTopOf="@id/edit_single_songname"
+            android:autofillHints=""
+            android:inputType="text"
+            >
+        </EditText>
 
-                        <!-- Buttons -->
-                        <androidx.constraintlayout.widget.ConstraintLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="8dp">
+        <EditText
+            android:id="@+id/edit_single_songurl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="80dp"
+            android:layout_marginEnd="8dp"
+            android:textSize="20sp"
+            android:theme="@style/AppTheme"
+            android:hint="(Optional) Song URL"
+            app:layout_constraintTop_toTopOf="@id/edit_single_artistname"
+            android:autofillHints=""
+            android:inputType="text"
+            >
+        </EditText>
 
-                                <TextView
-                                    android:id="@+id/createNoteStatusText"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:gravity="center"
-                                    android:text="@null"
-                                    app:layout_constraintBaseline_toBaselineOf="@+id/createNoteCreateButton"
-                                    app:layout_constraintEnd_toStartOf="@+id/createNoteCreateButton"
-                                    app:layout_constraintHorizontal_bias="0.5"
-                                    app:layout_constraintStart_toStartOf="parent" />
 
-                                <com.google.android.material.button.MaterialButton
-                                    android:id="@+id/createNoteCreateButton"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:onClick="createNote"
-                                    android:text="Create"
-                                    android:textColor="@color/material_white_1000"
-                                    app:icon="@drawable/ic_add_black_24dp"
-                                    app:iconTint="@color/material_white_1000"
-                                    app:layout_constraintEnd_toEndOf="parent" />
-                        </androidx.constraintlayout.widget.ConstraintLayout>
-
-                </LinearLayout>
-
-        </com.google.android.material.card.MaterialCardView>
-
-<!--        <LinearLayout-->
-<!--            android:id="@+id/column_headers"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            app:layout_constraintTop_toTopOf="parent"-->
-<!--            android:orientation="horizontal" >-->
-<!--                <TextView-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:text="Song Names"/>-->
-<!--                <TextView-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:text="Artist Names"/>-->
-<!--                <TextView-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:text="URL Links"/>-->
-<!--        </LinearLayout>-->
-
-<!--        <androidx.recyclerview.widget.RecyclerView-->
-<!--            android:id="@+id/new_songs_list"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            app:layout_constraintTop_toTopOf="parent"/>-->
-
-<!--&lt;!&ndash;                <TextView&ndash;&gt;-->
-<!--&lt;!&ndash;                    android:id="@+id/create_songname"&ndash;&gt;-->
-<!--&lt;!&ndash;                    android:layout_width="match_parent"&ndash;&gt;-->
-<!--&lt;!&ndash;                    android:layout_height="wrap_content"&ndash;&gt;-->
-<!--&lt;!&ndash;                    android:layout_marginStart="8dp"&ndash;&gt;-->
-<!--&lt;!&ndash;                    android:layout_marginTop="80dp"&ndash;&gt;-->
-<!--&lt;!&ndash;                    android:layout_marginEnd="8dp"&ndash;&gt;-->
-<!--&lt;!&ndash;                    android:textAlignment="center"&ndash;&gt;-->
-<!--&lt;!&ndash;                    android:textSize="20sp"&ndash;&gt;-->
-<!--&lt;!&ndash;                    app:layout_constraintTop_toTopOf="parent" />&ndash;&gt;-->
-
-<!--&lt;!&ndash;                <TextView&ndash;&gt;-->
-<!--&lt;!&ndash;                    android:id="@+id/create_artistname"&ndash;&gt;-->
-<!--&lt;!&ndash;                    android:layout_width="match_parent"&ndash;&gt;-->
-<!--&lt;!&ndash;                    android:layout_height="wrap_content"&ndash;&gt;-->
-<!--&lt;!&ndash;                    android:layout_marginStart="8dp"&ndash;&gt;-->
-<!--&lt;!&ndash;                    android:layout_marginTop="50dp"&ndash;&gt;-->
-<!--&lt;!&ndash;                    android:layout_marginEnd="8dp"&ndash;&gt;-->
-<!--&lt;!&ndash;                    android:textAlignment="center"&ndash;&gt;-->
-<!--&lt;!&ndash;                    android:textSize="20sp"&ndash;&gt;-->
-<!--&lt;!&ndash;                    app:layout_constraintTop_toBottomOf="@id/create_songname"/>&ndash;&gt;-->
-
-<!--&lt;!&ndash;                <TextView&ndash;&gt;-->
-<!--&lt;!&ndash;                    android:id="@+id/create_songurl"&ndash;&gt;-->
-<!--&lt;!&ndash;                    android:layout_width="match_parent"&ndash;&gt;-->
-<!--&lt;!&ndash;                    android:layout_height="wrap_content"&ndash;&gt;-->
-<!--&lt;!&ndash;                    android:layout_marginStart="8dp"&ndash;&gt;-->
-<!--&lt;!&ndash;                    android:layout_marginTop="50dp"&ndash;&gt;-->
-<!--&lt;!&ndash;                    android:layout_marginEnd="8dp"&ndash;&gt;-->
-<!--&lt;!&ndash;                    android:textAlignment="center"&ndash;&gt;-->
-<!--&lt;!&ndash;                    android:textSize="20sp"&ndash;&gt;-->
-<!--&lt;!&ndash;                    app:layout_constraintTop_toBottomOf="@id/create_artistname" />&ndash;&gt;-->
-
-<!--        <Button-->
-<!--            android:id="@+id/create_music"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_centerHorizontal="true"-->
-<!--            android:layout_marginTop="50dp"-->
-<!--            app:layout_constraintTop_toBottomOf="@id/new_songs_list"-->
-<!--            app:layout_constraintLeft_toRightOf="parent"-->
-<!--            app:layout_constraintRight_toLeftOf="parent"-->
-<!--            android:text="Add Song" />-->
-
-<!--        <Button-->
-<!--            android:id="@+id/create_music_finalized"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_centerHorizontal="true"-->
-<!--            android:layout_marginTop="50dp"-->
-<!--            app:layout_constraintTop_toBottomOf="@id/create_music"-->
-<!--            app:layout_constraintLeft_toRightOf="parent"-->
-<!--            app:layout_constraintRight_toLeftOf="parent"-->
-<!--            android:text="Submit" />-->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/create_single_song"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="createSingleSong"
+            android:text="Create"
+            android:textColor="@color/material_white_1000"
+            app:icon="@drawable/ic_add_black_24dp"
+            app:iconTint="@color/material_white_1000"
+            app:layout_constraintTop_toBottomOf="@id/edit_single_songurl"
+            app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

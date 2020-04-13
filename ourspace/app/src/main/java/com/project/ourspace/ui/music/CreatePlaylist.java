@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -13,7 +14,7 @@ import com.project.ourspace.R;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CreateMusic extends AppCompatActivity implements CreateMusicDialog.CreateMusicDialogListener {
+public class CreatePlaylist extends AppCompatActivity implements CreateMusicDialog.CreateMusicDialogListener {
     private TextView songName;
     private TextView artistName;
     private TextView url;
@@ -26,13 +27,10 @@ public class CreateMusic extends AppCompatActivity implements CreateMusicDialog.
         super.onCreate(savedInstanceState);
         setContentView(R.layout.create_playlist);
 
-//        songName = (TextView) findViewById(R.id.create_songname);
-//        artistName = (TextView) findViewById(R.id.create_artistname);
-//        url = (TextView) findViewById(R.id.create_songurl);
         recyclerView = (RecyclerView) findViewById(R.id.new_songs_list);
         recyclerView.setHasFixedSize(false);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        submit = (Button) findViewById(R.id.create_music);
+        submit = (Button) findViewById(R.id.create_single_song);
 
         songList = new ArrayList<>();
         songList.add(new Song("Hello, Goodbye", "The Beatles", null));
@@ -63,6 +61,4 @@ public class CreateMusic extends AppCompatActivity implements CreateMusicDialog.
     public void cancelTexts() {
         finish();
     }
-
-
 }
