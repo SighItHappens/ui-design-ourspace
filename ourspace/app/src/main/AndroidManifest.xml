@@ -18,6 +18,14 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".ui.music.CreateSong"
+            android:label="@string/music_title">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".CreateNoteActivity"
             android:parentActivityName=".MainActivity">
             <meta-data
