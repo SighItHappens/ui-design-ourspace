@@ -5,6 +5,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
+import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,6 +22,8 @@ import com.google.android.material.navigation.NavigationView;
 import com.leinardi.android.speeddial.SpeedDialActionItem;
 import com.leinardi.android.speeddial.SpeedDialOverlayLayout;
 import com.leinardi.android.speeddial.SpeedDialView;
+import com.project.ourspace.data.LoginRepository;
+import com.project.ourspace.data.model.LoggedInUser;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -40,10 +44,13 @@ public class MainActivity extends AppCompatActivity {
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
+
+        initUserProfile(navigationView);
+
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow)
+                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow, R.id.nav_logout)
                 .setDrawerLayout(drawer)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
@@ -63,6 +70,17 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
+    }
+
+    private void initUserProfile(NavigationView navigationView) {
+        View headerView = navigationView.getHeaderView(0);
+        LoggedInUser user = LoginRepository.getInstance().getUserDetails();
+
+        TextView displayName = headerView.findViewById(R.id.headerUserDisplayName);
+        displayName.setText(user.getDisplayName());
+
+        TextView userEmail = headerView.findViewById(R.id.headerUserEmail);
+        userEmail.setText(user.getUserEmail());
     }
 
     private void initSpeedDial() {

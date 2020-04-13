@@ -1,5 +1,6 @@
-package com.project.ourspace.ui.slideshow;
+package com.project.ourspace.ui.logout;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,24 +15,19 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 
 import com.project.ourspace.R;
-import com.project.ourspace.ui.logout.LogoutViewModel;
+import com.project.ourspace.ui.login.LoginActivity;
 
-public class SlideshowFragment extends Fragment {
+public class LogoutFragment extends Fragment {
 
-    private LogoutViewModel slideshowViewModel;
+    private LogoutViewModel logoutViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-
-        View root = inflater.inflate(R.layout.fragment_slideshow, container, false);
-        final TextView textView = root.findViewById(R.id.text_slideshow);
-        slideshowViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
-            }
-        });
+        View root = inflater.inflate(R.layout.fragment_logout, container, false);
         ActionBar actionBar = ((AppCompatActivity)getActivity()).getSupportActionBar();
         actionBar.setIcon(R.drawable.ic_blank_24dp);
+
+        Intent loginIntent = new Intent(getContext(), LoginActivity.class);
+        startActivity(loginIntent);
         return root;
     }
 }
