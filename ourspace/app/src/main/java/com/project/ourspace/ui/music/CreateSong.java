@@ -28,17 +28,18 @@ public class CreateSong extends AppCompatActivity {
     public void createSingleSong(View view) {
         Intent homeScreenIntent = new Intent(this, MainActivity.class);
 
+        // Find each song content item
         EditText songName = findViewById(R.id.edit_single_songname);
         String songNameString = songName.getText().toString();
-
         EditText artistName = findViewById(R.id.edit_single_artistname);
         String artistNameString = artistName.getText().toString();
-
         EditText songUrl = findViewById(R.id.edit_single_songurl);
         String songUrlString;
+
+        // Try to create a url from the string: If it's not valid, then don't include a link.
         try {
             URL formatted_songUrl = new URL(songUrl.getText().toString());
-            songUrlString = formatted_songUrl.toString();
+            songUrlString = String.format("<a href=%s>Link</a>", songUrl.getText().toString());
         } catch (MalformedURLException e) {
             songUrlString = null;
         }
@@ -51,6 +52,5 @@ public class CreateSong extends AppCompatActivity {
         Log.d(TAG, "Retrieved Song URL: " + songUrlString);
 
         startActivity(homeScreenIntent);
-
     }
 }

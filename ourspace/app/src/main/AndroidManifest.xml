@@ -19,6 +19,7 @@
         </activity>
         <activity
             android:name=".ui.music.CreateSong"
+            android:parentActivityName=".MainActivity"
             android:label="@string/music_title">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
