@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!--    <color name="primaryColor">#4dd0e1</color>-->
-    <!--    <color name="primaryLightColor">#88ffff</color>-->
-    <!--    <color name="primaryDarkColor">#009faf</color>-->
-    <!--    <color name="primaryTextColor">#000000</color>-->
+
 
     <color name="primaryColor">#2196f3</color>
     <color name="primaryLightColor">#6ec6ff</color>
@@ -149,4 +146,5 @@
     <color name="selector_blue_pressed">#442962FF</color>
     <color name="selector_purple_focused">#22AA00FF</color>
     <color name="selector_purple_pressed">#44AA00FF</color>
+
 </resources>

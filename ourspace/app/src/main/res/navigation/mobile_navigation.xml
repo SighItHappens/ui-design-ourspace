@@ -8,36 +8,26 @@
     <fragment
         android:id="@+id/nav_home"
         android:name="com.project.ourspace.ui.home.HomeFragment"
-        android:label="@string/menu_home"
+        android:label="@string/family_wall"
+        android:icon="@drawable/ic_group_white_24dp"
         tools:layout="@layout/fragment_home">
-
-        <action
-            android:id="@+id/action_HomeFragment_to_HomeSecondFragment"
-            app:destination="@id/nav_home_second" />
-    </fragment>
-    <fragment
-        android:id="@+id/nav_home_second"
-        android:name="com.project.ourspace.ui.home.HomeSecondFragment"
-        android:label="@string/home_second"
-        tools:layout="@layout/fragment_home_second">
-        <action
-            android:id="@+id/action_HomeSecondFragment_to_HomeFragment"
-            app:destination="@id/nav_home" />
-
-        <argument
-            android:name="myArg"
-            app:argType="string" />
     </fragment>
 
     <fragment
         android:id="@+id/nav_gallery"
         android:name="com.project.ourspace.ui.gallery.GalleryFragment"
-        android:label="@string/menu_gallery"
+        android:label="@string/my_wall"
         tools:layout="@layout/fragment_gallery" />
 
     <fragment
         android:id="@+id/nav_slideshow"
         android:name="com.project.ourspace.ui.slideshow.SlideshowFragment"
-        android:label="@string/menu_slideshow"
+        android:label="@string/action_settings"
         tools:layout="@layout/fragment_slideshow" />
+
+    <fragment
+        android:id="@+id/nav_logout"
+        android:name="com.project.ourspace.ui.logout.LogoutFragment"
+        android:label="@string/logout"
+        tools:layout="@layout/fragment_logout" />
 </navigation>

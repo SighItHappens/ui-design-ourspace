@@ -18,6 +18,7 @@ public class HomeViewModel extends ViewModel {
 
     public HomeViewModel() {
         mText = new MutableLiveData<>();
+
         mText.setValue("This is home fragment");
         mList = new MutableLiveData<>();
 
@@ -49,6 +50,9 @@ public class HomeViewModel extends ViewModel {
 
 
         mList.setValue(tileList);
+
+        mText.setValue("This is the family wall");
+
     }
 
     public LiveData<String> getText() {
