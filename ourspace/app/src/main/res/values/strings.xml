@@ -24,4 +24,5 @@
 
     <string name="create_tvshow">Create TV Show</string>
     <string name="create_note">Create Note</string>
+    <string name="unicode_circle">●</string>
 </resources>

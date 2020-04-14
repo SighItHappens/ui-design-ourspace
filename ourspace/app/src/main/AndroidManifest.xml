@@ -10,9 +10,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".CreateTvshowActivity"
-            android:parentActivityName=".MainActivity"
-            android:label="@string/create_tvshow">
+            android:name=".ShowTvshowActivity"
+            android:parentActivityName=".MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
