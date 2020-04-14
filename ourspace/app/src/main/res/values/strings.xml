@@ -13,6 +13,9 @@
     <string name="menu_support">Support</string>
 
     <string name="home_second">Home Second</string>
+    <string name="spotify">Spotify</string>
+    <string name="default_image_view">Default Image View</string>
+
     <string name="family_wall">Family Wall</string>
     <string name="my_wall">My Wall</string>
     <string name="ask_help">Ask Help</string>
