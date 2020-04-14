@@ -88,10 +88,10 @@ public class MainActivity extends AppCompatActivity {
         SpeedDialOverlayLayout overlay = findViewById(R.id.speedDialOverlay);
         speedDialView.setOverlayLayout(overlay);
 
-        createSpeedDialItem(speedDialView, R.id.fab_add_tv_show, R.drawable.ic_videocam_black_24dp, R.string.add_tv_show, R.color.primaryDarkColor, R.color.material_white_1000);
+        createSpeedDialItem(speedDialView, R.id.fab_add_tv_show, R.drawable.tvshow, R.string.add_tv_show, R.color.primaryDarkColor, R.color.material_white_1000);
         createSpeedDialItem(speedDialView, R.id.fab_add_music, R.drawable.ic_music_note_white_24dp, R.string.add_music, R.color.primaryDarkColor, R.color.material_white_1000);
-        createSpeedDialItem(speedDialView, R.id.fab_new_note, R.drawable.ic_note_white_24dp, R.string.add_note, R.color.primaryDarkColor, R.color.material_white_1000);
-        createSpeedDialItem(speedDialView, R.id.fab_new_image, R.drawable.ic_menu_camera, R.string.add_image, R.color.primaryDarkColor, R.color.material_white_1000);
+        createSpeedDialItem(speedDialView, R.id.fab_new_note, R.drawable.note_icon, R.string.add_note, R.color.primaryDarkColor, R.color.material_white_1000);
+        createSpeedDialItem(speedDialView, R.id.fab_new_image, R.drawable.ic_image_black_24dp, R.string.add_image, R.color.primaryDarkColor, R.color.material_white_1000);
 
         final Toast toast = Toast.makeText(getApplicationContext(), "Replace with your own TV action", Toast.LENGTH_SHORT);
         final Intent createNoteIntent = new Intent(this, CreateNoteActivity.class);
