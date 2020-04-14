@@ -92,8 +92,6 @@ public class ShowTvshowActivity extends AppCompatActivity {
             ));
             constraint.addView(name);
 
-
-
             ConstraintSet set = new ConstraintSet();
             set.clone(constraint);
             set.connect(circle.getId(), ConstraintSet.LEFT, ConstraintSet.PARENT_ID, ConstraintSet.LEFT,(int)(progress*con_width));
