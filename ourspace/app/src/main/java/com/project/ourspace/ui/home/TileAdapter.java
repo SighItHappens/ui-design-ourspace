@@ -45,7 +45,7 @@ public class TileAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         //inflating and returning our view holder
         LayoutInflater inflater = LayoutInflater.from(mCtx);
         if (viewType == 1) {
-            View view = inflater.inflate(R.layout.image_card_layout, null);
+            View view = inflater.inflate(R.layout.image_card_layout,parent, false);
             return new ImageViewHolder(view);
         } else if (viewType == 2) {
             View view = inflater.inflate(R.layout.song_card_layout, parent, false);
@@ -54,6 +54,10 @@ public class TileAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         else if (viewType == 3) {
             View view = inflater.inflate(R.layout.tv_show_card_layout, parent, false);
             return new TVShowViewHolder(view);
+        }
+        else if (viewType == 4) {
+            View view = inflater.inflate(R.layout.text_card_layout, parent, false);
+            return new NoteViewHolder(view);
         }
         return null;
     }
@@ -67,6 +71,9 @@ public class TileAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         }
         else if (getItemViewType(position) == 3) {
             ((TVShowViewHolder) holder).setTVShowDetails(tileList.get(position));
+        }
+        else if (getItemViewType(position) == 4) {
+            ((NoteViewHolder) holder).setNoteDetails(tileList.get(position));
         }
     }
 
@@ -96,6 +103,7 @@ public class TileAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         }
 
     }
+
 
     class SongViewHolder extends RecyclerView.ViewHolder {
 
@@ -165,6 +173,26 @@ public class TileAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         }
 
     }
+    class NoteViewHolder extends RecyclerView.ViewHolder {
+
+        private TextView posted_by;
+        private TextView Time;
+        private TextView note;
+
+        NoteViewHolder(@NonNull View itemView) {
+            super(itemView);
+            posted_by = itemView.findViewById(R.id.posted_by);
+            Time = itemView.findViewById(R.id.date);
+            note = itemView.findViewById(R.id.note);
+        }
+
+        private void setNoteDetails(Tile tile) {
+            posted_by.setText(tile.getName());
+            Time.setText((tile.getTime()));
+            note.setText((tile.getImage()));
+        }
+
+    }
 
     @Override
     public int getItemViewType(int position) {
@@ -176,6 +204,9 @@ public class TileAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         }
         else if (tileList.get(position).getType() == 3) {
             return 3;
+        }
+        else if (tileList.get(position).getType() == 4) {
+            return 4;
         }
         else {
             return 0;

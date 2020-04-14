@@ -55,7 +55,6 @@
             <ImageView
                 android:id="@+id/image"
                 android:layout_width="match_parent"
-                android:layout_below="@id/posted_by"
                 android:layout_height="300dp"
                 android:scaleType="fitCenter"
                 android:contentDescription="@string/default_image_view" />

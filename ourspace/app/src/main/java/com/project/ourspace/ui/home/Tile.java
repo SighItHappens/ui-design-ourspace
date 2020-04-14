@@ -15,7 +15,8 @@ public class Tile {
     private String song_name;
     private String artist_name;
     private String song_link;
-
+    //Note fields
+    private String note;
 
     //Constructor for the image tile
     // Type = 1
@@ -25,6 +26,12 @@ public class Tile {
         this.Time = Time;
         this.image = image;
     }
+//    public Tile(int type, String Name, String Time, String note) {
+//        this.type = type;
+//        this.Name = Name;
+//        this.Time = Time;
+//        this.note = note;
+//    }
 
     //Constructor for the Song type
     // Type = 2
@@ -59,7 +66,7 @@ public class Tile {
     }
 
 
-    public String getImage() {
+    public String  getImage() {
         return image;
     }
     public void setImage(String _image) {
@@ -92,6 +99,8 @@ public class Tile {
     public String getSong_link() {
         return song_link;
     }
+//    public String getNote(){return note;}
+
 
     public void setSong_link(String song_link) {
         this.song_link = song_link;

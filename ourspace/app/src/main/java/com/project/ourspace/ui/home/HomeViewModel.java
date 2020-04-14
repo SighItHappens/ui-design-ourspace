@@ -40,6 +40,11 @@ public class HomeViewModel extends ViewModel {
         );
         tileList.add(
                 new Tile(
+                        4, "Sam", "05 Apr 2020", "Hello there"
+                )
+        );
+        tileList.add(
+                new Tile(
                         3, "Shravya", "09 Apr 2020", "two_and_a_half_men"));
 
 
