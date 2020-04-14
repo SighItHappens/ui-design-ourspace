@@ -42,4 +42,9 @@
     <string name="login_failed">"Invalid username or password"</string>
     <string name="invalid_password_2">"Password cannot be empty"</string>
     <string name="logout">"Logout"</string>
+
+    <string name="tv_confirm_add">Add Show</string>
+    <string name="tv_search_label">Enter a show name</string>
+    <string name="tv_search_button">Search</string>
+    <string name="tv_search_input_error">Please check your search term</string>
 </resources>
