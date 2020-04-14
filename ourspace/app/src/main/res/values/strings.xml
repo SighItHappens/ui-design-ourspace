@@ -23,6 +23,13 @@
     <string name="add_tv_show">TV Show</string>
     <string name="add_music">Music</string>
     <string name="add_note">Note</string>
+    <string name="add_image">Image</string>
+
+    <string name="post">Post</string>
+    <string name="take_new_picture">Take New Picture</string>
+
+    <string name="song_label">Title</string>
+    <string name="song_artist">Artist</string>
 
     <string name="title_activity_login">Ourspace</string>
     <string name="prompt_username">Username</string>

@@ -1,6 +1,8 @@
 package com.project.ourspace;
 
+import androidx.annotation.LongDef;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelProviders;
 
 import android.content.Intent;
@@ -15,6 +17,7 @@ import com.google.android.material.textfield.TextInputLayout;
 import com.project.ourspace.data.LoginDataSource;
 import com.project.ourspace.data.LoginRepository;
 import com.project.ourspace.data.model.LoggedInUser;
+import com.project.ourspace.ui.home.HomeViewModel;
 import com.project.ourspace.ui.login.LoginViewModel;
 import com.project.ourspace.ui.login.LoginViewModelFactory;
 
@@ -27,6 +30,8 @@ import java.util.TimerTask;
 public class CreateNoteActivity extends AppCompatActivity {
 
     private static final String TAG = "CreateNoteActivity";
+
+    HomeViewModel homeViewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +56,10 @@ public class CreateNoteActivity extends AppCompatActivity {
 
         LoggedInUser userDetails = LoginRepository.getInstance().getUserDetails();
 
+        homeViewModel = new ViewModelProvider(this).get(HomeViewModel.class);
+        homeViewModel.addItem(4, userDetails.getDisplayName(), "04 Apr 2020", contentString);
+
+        Log.d(TAG, "createNote: Home View Model Object: " + homeViewModel);
         Log.d(TAG, "Retrieved Note Owner: " + userDetails.getDisplayName());
         Log.d(TAG, "Retrieved Title Text: " + titleString);
         Log.d(TAG, "Retrieved Content Text: " + contentString);
