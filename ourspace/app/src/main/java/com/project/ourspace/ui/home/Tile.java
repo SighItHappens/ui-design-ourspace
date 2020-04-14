@@ -1,5 +1,7 @@
 package com.project.ourspace.ui.home;
 
+import android.drm.DrmStore;
+
 public class Tile {
     // Generic Fields
     private int type;
@@ -34,6 +36,8 @@ public class Tile {
         this.artist_name = artist_name;
         this.song_link = song_link;
     }
+
+
 
     //Make constructors for each type of tile
 

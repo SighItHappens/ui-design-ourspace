@@ -38,6 +38,10 @@ public class HomeViewModel extends ViewModel {
                         2, "Sam", "04/05/20", "Eleven", "Khalid", "https://open.spotify.com/track/1ToprX3cpBiXoAe5eNSk74?si=AELZvNrpQ1eNaFio74RJ8Q"
                 )
         );
+        tileList.add(
+                new Tile(
+                        3, "Shravya", "04/09/20", "two_and_a_half_men"));
+
 
         mList.setValue(tileList);
     }

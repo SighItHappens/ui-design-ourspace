@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -51,6 +52,10 @@ public class TileAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             View view = inflater.inflate(R.layout.song_card_layout, null);
             return new SongViewHolder(view);
         }
+        else if (viewType == 3) {
+            View view = inflater.inflate(R.layout.tv_show_card_layout, null);
+            return new TVShowViewHolder(view);
+        }
         return null;
     }
 
@@ -60,6 +65,9 @@ public class TileAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             ((ImageViewHolder) holder).setImageDetails(tileList.get(position));
         } else if (getItemViewType(position) == 2) {
             ((SongViewHolder) holder).setSongDetails(tileList.get(position));
+        }
+        else if (getItemViewType(position) == 3) {
+            ((TVShowViewHolder) holder).setTVShowDetails(tileList.get(position));
         }
     }
 
@@ -124,6 +132,40 @@ public class TileAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             });
         }
     }
+    class TVShowViewHolder extends RecyclerView.ViewHolder {
+
+        private TextView posted_by;
+        private TextView Time;
+        private ImageView image;
+        private ImageButton track;
+        TVShowViewHolder(@NonNull View itemView) {
+            super(itemView);
+            posted_by = itemView.findViewById(R.id.posted_by);
+            Time = itemView.findViewById(R.id.date);
+            image = itemView.findViewById(R.id.image);
+        }
+
+        private void setTVShowDetails(Tile tile) {
+            posted_by.setText(tile.getName());
+            Time.setText((tile.getTime()));
+            int resId = mCtx.getResources().getIdentifier(
+                    tile.getImage(),
+                    "drawable",
+                    mCtx.getPackageName()
+            );
+            track = itemView.findViewById(R.id.track);
+            track.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent();
+                    mCtx.startActivity(intent);
+                }
+            });
+            System.out.println(resId);
+            image.setImageResource(resId);
+        }
+
+    }
 
     @Override
     public int getItemViewType(int position) {
@@ -132,7 +174,11 @@ public class TileAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
         } else if (tileList.get(position).getType() == 2) {
             return 2;
-        } else {
+        }
+        else if (tileList.get(position).getType() == 3) {
+            return 3;
+        }
+        else {
             return 0;
         }
     }
