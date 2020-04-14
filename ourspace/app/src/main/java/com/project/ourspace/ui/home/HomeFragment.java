@@ -29,8 +29,6 @@ public class HomeFragment extends Fragment {
     RecyclerView recyclerView;
     List<Tile> tileList;
 
-
-
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
@@ -46,13 +44,6 @@ public class HomeFragment extends Fragment {
         // Create the observer which updates the UI.
         final Observer<List<Tile>> tileObserver = new Observer<List<Tile>>() {
 
-    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        homeViewModel = ViewModelProviders.of(this).get(HomeViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_home, container, false);
-        final TextView textView = root.findViewById(R.id.text_home);
-//        Toolbar toolbar = this.get();
-        homeViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
-
             @Override
             public void onChanged(@Nullable final List<Tile> tileList) {
                 // Update the UI, in this case, a TextView.
@@ -66,8 +57,8 @@ public class HomeFragment extends Fragment {
         };
         homeViewModel.getList().observe(getActivity(), tileObserver);
 
-        });
-        ActionBar actionBar = ((AppCompatActivity)getActivity()).getSupportActionBar();
+
+        ActionBar actionBar = ((AppCompatActivity) getActivity()).getSupportActionBar();
         actionBar.setIcon(R.drawable.ic_group_white_24dp);
 
 
