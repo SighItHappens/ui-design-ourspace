@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.google.android.material.card.MaterialCardView
+    android:id="@+id/card"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:layout_margin="8dp"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    >
+
 
     <LinearLayout
         android:orientation="vertical"
@@ -10,30 +14,44 @@
         android:layout_height="wrap_content">
 
 
-        <RelativeLayout
+
+
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="8dp">
+            android:orientation="horizontal"
+            android:layout_margin="8dp"
+            >
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/avatar"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
 
+                android:src="@drawable/tvshow"
+
+                />
 
             <TextView
                 android:id="@+id/posted_by"
-                android:layout_marginTop="15dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:textColor="@android:color/black"
-                android:textStyle="bold"
-                android:textSize="24sp" />
 
+                android:padding="15dp"
+                android:textAppearance="?attr/textAppearanceHeadline6"/>
+            <!--                android:textColor="@android:color/black"-->
+            <!--                android:textStyle="bold"-->
+            <!--                android:textSize="24sp" -->
             <TextView
                 android:id="@+id/date"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentTop="true"
+                android:layout_marginTop="8dp"
+                android:gravity="right"
+                android:layout_weight="1"
                 android:textSize="12sp" />
 
+        </LinearLayout>
             <ImageView
                 android:id="@+id/image"
                 android:layout_width="match_parent"
@@ -41,7 +59,6 @@
                 android:layout_height="300dp"
                 android:scaleType="fitCenter"
                 android:contentDescription="@string/default_image_view" />
-        </RelativeLayout>
 
 
 
@@ -51,12 +68,15 @@
 
 
 
-        <ImageButton
-            android:id="@+id/track"            android:layout_width="30dp"
-            android:layout_height="30dp"
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/track"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:layout_marginStart="10dp"
-            app:srcCompat="@drawable/ic_theaters_black_24dp"/>
+            android:padding="15dp"
+            android:text="Track"
+            style="?attr/borderlessButtonStyle"/>
 
 
 
@@ -69,5 +89,4 @@
 
 
     </LinearLayout>
-
-</RelativeLayout>
+</com.google.android.material.card.MaterialCardView>

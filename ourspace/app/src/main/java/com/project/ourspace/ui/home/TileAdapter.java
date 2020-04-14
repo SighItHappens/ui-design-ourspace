@@ -8,7 +8,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -49,11 +48,11 @@ public class TileAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             View view = inflater.inflate(R.layout.image_card_layout, null);
             return new ImageViewHolder(view);
         } else if (viewType == 2) {
-            View view = inflater.inflate(R.layout.song_card_layout, null);
+            View view = inflater.inflate(R.layout.song_card_layout, parent, false);
             return new SongViewHolder(view);
         }
         else if (viewType == 3) {
-            View view = inflater.inflate(R.layout.tv_show_card_layout, null);
+            View view = inflater.inflate(R.layout.tv_show_card_layout, parent, false);
             return new TVShowViewHolder(view);
         }
         return null;
@@ -137,7 +136,7 @@ public class TileAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         private TextView posted_by;
         private TextView Time;
         private ImageView image;
-        private ImageButton track;
+        private Button track;
         TVShowViewHolder(@NonNull View itemView) {
             super(itemView);
             posted_by = itemView.findViewById(R.id.posted_by);
