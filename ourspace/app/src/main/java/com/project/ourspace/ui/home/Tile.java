@@ -47,7 +47,7 @@ public class Tile {
     }
 
     //Constructor for the TV Show type
-    public Tile(int type, String name, String time,String showName, int seasons, int episodes, int[][] showProgress){
+    public Tile(int type, String name, String time,String showName, int seasons, int episodes, int[][] showProgress, String showImage){
         this.type = type;
         this.name = name;
         this.time = time;
@@ -55,6 +55,7 @@ public class Tile {
         this.seasons = seasons;
         this.episodes = episodes;
         this.showProgress = showProgress;
+        this.image = showImage;
     }
 
     // Constructor for the note tile

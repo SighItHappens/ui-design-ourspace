@@ -85,7 +85,7 @@ public class CreateTelevisionActivity extends AppCompatActivity {
                     showProgress = new int[5][13];
                     TileList.addItem(
                         new Tile(3, "User", "04 Apr 2020",
-                                  arr[0], 5,13,showProgress));
+                                  arr[0], 5,13,showProgress,"@drawable/breakingbad"));
 
                     // Breaking Bad
                     // return seasons = 5, episodes = 13
@@ -98,7 +98,7 @@ public class CreateTelevisionActivity extends AppCompatActivity {
                     // return seasons = 10, episodes = 24
                     TileList.addItem(
                             new Tile(3, "User", "04 Apr 2020",
-                                    arr[1], 10,24,showProgress));
+                                    arr[1], 10,24,showProgress, "@drawable/friends"));
                     // create TV show instance on Family Wall & return to home page
                     Intent homeScreenIntent = new Intent(getApplicationContext(), MainActivity.class);
                     startActivity(homeScreenIntent);
@@ -109,7 +109,7 @@ public class CreateTelevisionActivity extends AppCompatActivity {
                     showProgress = new int[1][11];
                     TileList.addItem(
                             new Tile(3, "User", "04 Apr 2020",
-                                    arr[2], 1,11,showProgress));
+                                    arr[2], 1,11,showProgress,"@drawable/planetearth"));
                     // create TV show instance on Family Wall & return to home page
                     Intent homeScreenIntent = new Intent(getApplicationContext(), MainActivity.class);
                     startActivity(homeScreenIntent);
