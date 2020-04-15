@@ -181,6 +181,8 @@ public class TileAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
                     mBundle.putSerializable("number_of_season", tile.getSeasons());
                     mBundle.putSerializable("number_of_episodes", tile.getEpisodes());
                     mBundle.putSerializable("show_progress", tile.getShowProgress());
+                    mBundle.putSerializable("name_of_show", tile.getShowName());
+
                     intent.putExtras(mBundle);
                     mCtx.startActivity(intent);
                 }

@@ -9,6 +9,7 @@ import androidx.constraintlayout.widget.ConstraintSet;
 import android.content.Intent;
 import android.graphics.Point;
 import android.os.Bundle;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.Display;
 import android.view.Gravity;
@@ -34,8 +35,11 @@ public class ShowTvshowActivity extends AppCompatActivity {
         int number_of_season = intent.getIntExtra("number_of_season", 3);
         int number_of_member = intent.getIntExtra("number_of_member", 2);
         int number_of_episode = intent.getIntExtra("number_of_episode", 10);
-        String title = intent.getStringExtra("show_title");
-        double temp_progresses[] = intent.getDoubleArrayExtra("show_progresses");
+        String title = intent.getStringExtra("name_of_show");
+        double temp_progresses[] = intent.getDoubleArrayExtra("show_progress");
+        Log.d("TAG", Integer.toString(number_of_season));
+        Log.d("TAG", Integer.toString(number_of_episode));
+
         String members[] = new String[number_of_member];
         for (int q=0; q<number_of_member; q++) {
             members[q] = "None";
@@ -55,13 +59,14 @@ public class ShowTvshowActivity extends AppCompatActivity {
         members[0] = "Me"; members[1] = "Sister";
 
         //progresses[users][seasons]
-        double progresses[][] = new double[2][number_of_season];
+        double progresses[][] = new double[number_of_member][number_of_season];
         for (int i=0; i<number_of_member; i++) {
             for (int j=0; j<number_of_season; j++) {
                 progresses[i][j] = 0;
             }
         }
         if(temp_progresses == null) {
+            Log.d("TAG", "temp_progresses is null");
             progresses[0][0] = 1; progresses[0][1] = 0.75; progresses[0][2] = 0;
             progresses[1][0] = 1; progresses[1][1] = 1; progresses[1][2] = 0.5;
         } else {
@@ -120,8 +125,13 @@ public class ShowTvshowActivity extends AppCompatActivity {
                 count++;
             }
         }
-        test.putExtra("show_progresses", temp_pro);
+        test.putExtra("show_progress", temp_pro);
 //        test.putExtra("selected_season", 2);
+        test.putExtra("number_of_season",number_of_season);
+        test.putExtra("number_of_episode",number_of_episode);
+        test.putExtra("name_of_show", title);
+
+
 //        cardView.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {

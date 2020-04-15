@@ -19,7 +19,7 @@ public class Tile {
     private String showName;
     private int seasons;
     private int episodes;
-    private int[][] showProgress;
+    private double[][] showProgress;
 
 
     // Note fields
@@ -47,7 +47,7 @@ public class Tile {
     }
 
     //Constructor for the TV Show type
-    public Tile(int type, String name, String time,String showName, int seasons, int episodes, int[][] showProgress, String image){
+    public Tile(int type, String name, String time,String showName, int seasons, int episodes, double[][] showProgress, String image){
         this.type = type;
         this.name = name;
         this.time = time;
@@ -141,11 +141,12 @@ public class Tile {
     }
 
     public int getSeasons(){return seasons;}
+    public String getShowName(){return showName;}
 
     public void  setSeasons(int seasons){this.seasons=seasons;}
     public int getEpisodes(){return episodes;}
     public void  setEpisodes(int episodes){this.episodes=episodes;}
-    public int[][] getShowProgress() {return showProgress;}
-    public void setShowProgress(int[][] showProgress){this.showProgress=showProgress;}
+    public double[][] getShowProgress() {return showProgress;}
+    public void setShowProgress(double[][] showProgress){this.showProgress=showProgress;}
 }
 

@@ -104,12 +104,6 @@ public class MainActivity extends AppCompatActivity {
                 switch (speedDialActionItem.getId()) {
                     case R.id.fab_add_tv_show:
                         startActivity(createTelevisionIntent);
-//                        toast.setText("Custom TV action");
-//                        toast.show();
-//                        toast.setText("Custom TV action");
-//                        toast.show();
-//                        showTvshowIntent.putExtra("show_title", "F.R.I.E.N.D.S");
-                        //startActivity(showTvshowIntent);
                         return false;
                     case R.id.fab_add_music:
                         toast.setText("Custom Music action");

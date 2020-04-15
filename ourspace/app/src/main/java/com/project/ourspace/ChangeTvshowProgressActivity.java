@@ -25,6 +25,7 @@ public class ChangeTvshowProgressActivity extends AppCompatActivity {
     int number_of_season;
     int number_of_episode;
     int selected_season;
+    String title;
     double temp_progresses[];
 
     int checkBoxIDs_Me[];
@@ -40,8 +41,8 @@ public class ChangeTvshowProgressActivity extends AppCompatActivity {
         number_of_season = intent.getIntExtra("number_of_season", 3);
         number_of_episode = intent.getIntExtra("number_of_episode", 10);
         selected_season = intent.getIntExtra("selected_season", 1);
-        String title = intent.getStringExtra("show_title");
-        temp_progresses = intent.getDoubleArrayExtra("show_progresses");
+        title = intent.getStringExtra("name_of_show");
+        temp_progresses = intent.getDoubleArrayExtra("show_progress");
 
         checkBoxIDs_Me = new int[number_of_episode];
 
@@ -81,6 +82,11 @@ public class ChangeTvshowProgressActivity extends AppCompatActivity {
         assert actionBar != null;
         if (title == null) { title = "Name of TV show"; }
         actionBar.setTitle(title);
+//        actionBar.setLogo(R.drawable.ic_blank_24dp);
+        // back button does not work
+        // just don't use it in the demo...
+//        actionBar.setDisplayHomeAsUpEnabled(false);
+//        actionBar.setDisplayShowHomeEnabled(false);
 
         /* TextView Part: */
         TextView seasonTitle = findViewById(R.id.season_title);
@@ -162,7 +168,10 @@ public class ChangeTvshowProgressActivity extends AppCompatActivity {
         }
         double new_progress = (double)count / (double)number_of_episode;
         temp_progresses[selected_season-1] = new_progress;
-        intent2.putExtra("show_progresses", temp_progresses);
+        intent2.putExtra("number_of_season", number_of_season);
+        intent2.putExtra("number_of_episode", number_of_episode);
+        intent2.putExtra("show_progress", temp_progresses);
+        intent2.putExtra("name_of_show", title);
         startActivity(intent2);
     }
 }

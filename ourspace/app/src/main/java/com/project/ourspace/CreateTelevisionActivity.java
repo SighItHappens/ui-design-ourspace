@@ -30,7 +30,7 @@ public class CreateTelevisionActivity extends AppCompatActivity {
     AutoCompleteTextView autocomplete;
     ImageView imageView;
     Button searchButton, addButton;
-    int[][] showProgress;
+    double[][] showProgress;
 
     String[] arr = {"Breaking Bad", "Friends", "Planet Earth"};
     String finalSelection = "";
@@ -82,7 +82,7 @@ public class CreateTelevisionActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Log.d(TAG, "Confirming selection: " + finalSelection);
                 if (arr[0].equals(finalSelection)) {
-                    showProgress = new int[5][13];
+                    showProgress = new double[2][5];
                     TileList.addItem(
                         new Tile(3, "Jane", "04 Apr 2020",
                                   arr[0], 5,13,showProgress,"@drawable/breakingbad"));
@@ -94,7 +94,7 @@ public class CreateTelevisionActivity extends AppCompatActivity {
                     startActivity(homeScreenIntent);
                 } else if (arr[1].equals(finalSelection)) {
                     // Friends
-                    showProgress = new int[10][24];
+                    showProgress = new double[2][10];
                     // return seasons = 10, episodes = 24
                     TileList.addItem(
                             new Tile(3, "Jane", "04 Apr 2020",
@@ -106,10 +106,10 @@ public class CreateTelevisionActivity extends AppCompatActivity {
 
                     // Planet Earth
                     // return seasons = 1, episodes = 11
-                    showProgress = new int[1][11];
+                    showProgress = new double[2][1];
                     TileList.addItem(
                             new Tile(3, "Jane", "04 Apr 2020",
-                                    arr[2], 1,11,showProgress,"@drawable/planetearth"));
+                                    arr[2], 4,11,showProgress,"@drawable/planetearth"));
                     // create TV show instance on Family Wall & return to home page
                     Intent homeScreenIntent = new Intent(getApplicationContext(), MainActivity.class);
                     startActivity(homeScreenIntent);
