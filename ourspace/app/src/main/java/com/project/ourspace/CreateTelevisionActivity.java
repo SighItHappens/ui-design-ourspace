@@ -2,7 +2,8 @@ package com.project.ourspace;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
-
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
@@ -81,10 +82,13 @@ public class CreateTelevisionActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Log.d(TAG, "Confirming selection: " + finalSelection);
+                SimpleDateFormat formatter = new SimpleDateFormat("MMM dd yyyy");
+                Date date = new Date();
                 if (arr[0].equals(finalSelection)) {
                     showProgress = new double[2][5];
+
                     TileList.addItem(
-                        new Tile(3, "Jane", "04 Apr 2020",
+                        new Tile(3, "Jane", formatter.format(date),
                                   arr[0], 5,13,showProgress,"@drawable/breakingbad"));
 
                     // Breaking Bad
@@ -107,6 +111,7 @@ public class CreateTelevisionActivity extends AppCompatActivity {
                     // Planet Earth
                     // return seasons = 1, episodes = 11
                     showProgress = new double[2][1];
+
                     TileList.addItem(
                             new Tile(3, "Jane", "04 Apr 2020",
                                     arr[2], 4,11,showProgress,"@drawable/planetearth"));
