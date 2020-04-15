@@ -20,6 +20,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputLayout;
+import com.project.ourspace.data.model.TileList;
+import com.project.ourspace.ui.home.Tile;
 
 public class CreateTelevisionActivity extends AppCompatActivity {
 
@@ -28,6 +30,7 @@ public class CreateTelevisionActivity extends AppCompatActivity {
     AutoCompleteTextView autocomplete;
     ImageView imageView;
     Button searchButton, addButton;
+    double[][] showProgress;
 
     String[] arr = {"Breaking Bad", "Friends", "Planet Earth"};
     String finalSelection = "";
@@ -35,6 +38,8 @@ public class CreateTelevisionActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        ActionBar actionBar = this.getSupportActionBar();
+        actionBar.setTitle("OurSpace - Add New TV Show");
 
         init();
 
@@ -77,17 +82,37 @@ public class CreateTelevisionActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Log.d(TAG, "Confirming selection: " + finalSelection);
                 if (arr[0].equals(finalSelection)) {
+                    showProgress = new double[2][5];
+                    TileList.addItem(
+                        new Tile(3, "Jane", "04 Apr 2020",
+                                  arr[0], 5,13,showProgress,"@drawable/breakingbad"));
+
                     // Breaking Bad
                     // return seasons = 5, episodes = 13
                     // create TV show instance on Family Wall & return to home page
+                    Intent homeScreenIntent = new Intent(getApplicationContext(), MainActivity.class);
+                    startActivity(homeScreenIntent);
                 } else if (arr[1].equals(finalSelection)) {
                     // Friends
+                    showProgress = new double[2][10];
                     // return seasons = 10, episodes = 24
+                    TileList.addItem(
+                            new Tile(3, "Jane", "04 Apr 2020",
+                                    arr[1], 10,24,showProgress, "@drawable/friends"));
                     // create TV show instance on Family Wall & return to home page
+                    Intent homeScreenIntent = new Intent(getApplicationContext(), MainActivity.class);
+                    startActivity(homeScreenIntent);
                 } else if (arr[2].equals(finalSelection)) {
+
                     // Planet Earth
                     // return seasons = 1, episodes = 11
+                    showProgress = new double[2][1];
+                    TileList.addItem(
+                            new Tile(3, "Jane", "04 Apr 2020",
+                                    arr[2], 4,11,showProgress,"@drawable/planetearth"));
                     // create TV show instance on Family Wall & return to home page
+                    Intent homeScreenIntent = new Intent(getApplicationContext(), MainActivity.class);
+                    startActivity(homeScreenIntent);
                 }
             }
         });
