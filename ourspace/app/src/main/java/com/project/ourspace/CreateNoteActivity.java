@@ -12,6 +12,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
@@ -70,6 +71,7 @@ public class CreateNoteActivity extends AppCompatActivity {
         Log.d(TAG, "Retrieved Title Text: " + titleString);
         Log.d(TAG, "Retrieved Content Text: " + contentString);
 
+        Toast.makeText(getApplicationContext(), "Note created!", Toast.LENGTH_LONG).show();
         startActivity(homeScreenIntent);
     }
 }
