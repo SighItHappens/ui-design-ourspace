@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
@@ -45,13 +47,7 @@ public class CreateSong extends AppCompatActivity {
         // Try to create a url from the string: If it's not valid, then don't include a link.
         try {
             URL formatted_songUrl = new URL(songUrl.getText().toString());
-            String target = songUrl.getText().toString();
-            if (target.contains("spotify.com")){
-                songUrlString = String.format("<a href=%s>Spotify</a>", target);
-            }
-            else {
-                songUrlString = String.format("<a href=%s>Link</a>", target);
-            }
+            songUrlString = songUrl.getText().toString();
         } catch (MalformedURLException e) {
             songUrlString = null;
         }
@@ -66,6 +62,7 @@ public class CreateSong extends AppCompatActivity {
         Log.d(TAG, "Retrieved Artist Name: " + artistNameString);
         Log.d(TAG, "Retrieved Song URL: " + songUrlString);
 
+        Toast.makeText(getApplicationContext(), "Song created!", Toast.LENGTH_LONG).show();
         startActivity(homeScreenIntent);
     }
 }
