@@ -49,8 +49,8 @@ public class HomeViewModel extends ViewModel {
                     new Tile(3, "Jane", "04 Apr 2020",
                             "F.R.I.E.N.D.S", 3,11,new double[2][3],"@drawable/friends"));
         }
-        mList.setValue(tileList);
 
+        mList.setValue(tileList);
     }
 
     public LiveData<List<Tile>> getList() {
