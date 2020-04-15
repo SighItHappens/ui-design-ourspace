@@ -15,6 +15,13 @@ public class Tile {
     private String artist_name;
     private String song_link;
 
+    // TV Show fields
+    private String showName;
+    private int seasons;
+    private int episodes;
+    private int[][] showProgress;
+
+
     // Note fields
     private String note;
     private String noteTitle;
@@ -37,6 +44,17 @@ public class Tile {
         this.song_name = song_name;
         this.artist_name = artist_name;
         this.song_link = song_link;
+    }
+
+    //Constructor for the TV Show type
+    public Tile(int type, String name, String time,String showName, int seasons, int episodes, int[][] showProgress){
+        this.type = type;
+        this.name = name;
+        this.time = time;
+        this.showName = showName;
+        this.seasons = seasons;
+        this.episodes = episodes;
+        this.showProgress = showProgress;
     }
 
     // Constructor for the note tile

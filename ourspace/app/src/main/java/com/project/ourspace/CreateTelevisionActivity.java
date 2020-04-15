@@ -20,6 +20,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputLayout;
+import com.project.ourspace.data.model.TileList;
+import com.project.ourspace.ui.home.Tile;
 
 public class CreateTelevisionActivity extends AppCompatActivity {
 
@@ -28,6 +30,7 @@ public class CreateTelevisionActivity extends AppCompatActivity {
     AutoCompleteTextView autocomplete;
     ImageView imageView;
     Button searchButton, addButton;
+    int[][] showProgress;
 
     String[] arr = {"Breaking Bad", "Friends", "Planet Earth"};
     String finalSelection = "";
@@ -35,6 +38,8 @@ public class CreateTelevisionActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        ActionBar actionBar = this.getSupportActionBar();
+        actionBar.setTitle("OurSpace - Add New TV Show");
 
         init();
 
@@ -77,16 +82,30 @@ public class CreateTelevisionActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Log.d(TAG, "Confirming selection: " + finalSelection);
                 if (arr[0].equals(finalSelection)) {
+                    showProgress = new int[5][13];
+                    TileList.addItem(
+                        new Tile(3, "User", "04 Apr 2020",
+                                  arr[0], 5,13,showProgress));
+
                     // Breaking Bad
                     // return seasons = 5, episodes = 13
                     // create TV show instance on Family Wall & return to home page
                 } else if (arr[1].equals(finalSelection)) {
                     // Friends
+                    showProgress = new int[10][24];
                     // return seasons = 10, episodes = 24
+                    TileList.addItem(
+                            new Tile(3, "User", "04 Apr 2020",
+                                    arr[1], 10,24,showProgress));
                     // create TV show instance on Family Wall & return to home page
                 } else if (arr[2].equals(finalSelection)) {
+
                     // Planet Earth
                     // return seasons = 1, episodes = 11
+                    showProgress = new int[1][11];
+                    TileList.addItem(
+                            new Tile(3, "User", "04 Apr 2020",
+                                    arr[2], 1,11,showProgress));
                     // create TV show instance on Family Wall & return to home page
                 }
             }
