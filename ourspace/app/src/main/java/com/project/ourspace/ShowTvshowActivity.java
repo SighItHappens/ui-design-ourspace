@@ -33,6 +33,9 @@ public class ShowTvshowActivity extends AppCompatActivity {
         Intent intent = getIntent();
         int number_of_season = intent.getIntExtra("number_of_season", 3);
         int number_of_member = intent.getIntExtra("number_of_member", 2);
+        int number_of_episode = intent.getIntExtra("number_of_episode", 10);
+        String title = intent.getStringExtra("show_title");
+        double temp_progresses[] = intent.getDoubleArrayExtra("show_progresses");
         String members[] = new String[number_of_member];
         for (int q=0; q<number_of_member; q++) {
             members[q] = "None";
@@ -46,7 +49,6 @@ public class ShowTvshowActivity extends AppCompatActivity {
 
         ActionBar actionbar = this.getSupportActionBar();
         assert actionbar != null;
-        String title = intent.getStringExtra("show_title");
         if (title == null) { title = "Name of TV show"; }
         actionbar.setTitle(title);
 
@@ -59,8 +61,16 @@ public class ShowTvshowActivity extends AppCompatActivity {
                 progresses[i][j] = 0;
             }
         }
-        progresses[0][0] = 1; progresses[0][1] = 0.75; progresses[0][2] = 0;
-        progresses[1][0] = 1; progresses[1][1] = 1; progresses[1][2] = 0.5;
+        if(temp_progresses == null) {
+            progresses[0][0] = 1; progresses[0][1] = 0.75; progresses[0][2] = 0;
+            progresses[1][0] = 1; progresses[1][1] = 1; progresses[1][2] = 0.5;
+        } else {
+            for (int i=0; i<temp_progresses.length; i++) {
+                int x = i / number_of_season;
+                int y = i % number_of_season;
+                progresses[x][y] = temp_progresses[i];
+            }
+        }
 
         /* Status chart part: */
         ConstraintLayout constraint = findViewById(R.id.graph_layout);
@@ -101,6 +111,24 @@ public class ShowTvshowActivity extends AppCompatActivity {
             set.applyTo(constraint);
         }
 
+        final Intent test = new Intent(this, ChangeTvshowProgressActivity.class);
+        double temp_pro[] = new double[number_of_member*number_of_season];
+        int count = 0;
+        for (int i=0; i<number_of_member; i++) {
+            for (int j=0; j<number_of_season; j++) {
+                temp_pro[count] = progresses[i][j];
+                count++;
+            }
+        }
+        test.putExtra("show_progresses", temp_pro);
+//        test.putExtra("selected_season", 2);
+//        cardView.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                startActivity(test);
+//            }
+//        });
+
 
         /* Season status part: */
         LinearLayout vertical = findViewById(R.id.vertical_layout);
@@ -119,6 +147,14 @@ public class ShowTvshowActivity extends AppCompatActivity {
                     LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT, 1
             ));
             text.setText(Integer.toString(j+1));
+            final int selected_season = j+1;
+            text.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    test.putExtra("selected_season", selected_season);
+                    startActivity(test);
+                }
+            });
             horizon.addView(text);
         }
         // Setting list of progresses
@@ -155,6 +191,14 @@ public class ShowTvshowActivity extends AppCompatActivity {
                 }
                 progress.setTextColor(color);
                 progress.setText("\u25cf");
+                final int selected_season = j+1;
+                progress.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        test.putExtra("selected_season", selected_season);
+                        startActivity(test);
+                    }
+                });
                 hori.addView(progress);
             }
         }
