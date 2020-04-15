@@ -28,7 +28,7 @@ public class Tile {
         this.image = image;
     }
 
-    //Constructor for the Song type
+    // Constructor for the Song type
     // Type = 2
     public Tile(int type, String name, String time, String song_name, String artist_name, String song_link) {
         this.type = type;

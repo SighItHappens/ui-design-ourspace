@@ -2,6 +2,7 @@ package com.project.ourspace;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.Manifest;
@@ -22,6 +23,8 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
@@ -30,7 +33,7 @@ import static android.view.Gravity.CENTER;
 public class AddImageActivity extends AppCompatActivity {
 
     ImageButton uploadedImage;
-    Button newImage;
+    FloatingActionButton newImage;
     Button post;
     static final int GET_FROM_GALLERY = 1;
     static final int REQUEST_IMAGE_CAPTURE = 0;
@@ -40,6 +43,9 @@ public class AddImageActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_image);
+
+        ActionBar actionBar = this.getSupportActionBar();
+        actionBar.setTitle("OurSpace - Add New Image");
 
         uploadedImage = findViewById(R.id.upload_button);
         newImage = findViewById(R.id.new_image);
