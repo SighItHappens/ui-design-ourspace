@@ -139,5 +139,13 @@ public class Tile {
     public void setNoteTitle(String noteTitle) {
         this.noteTitle = noteTitle;
     }
+
+    public int getSeasons(){return seasons;}
+
+    public void  setSeasons(int seasons){this.seasons=seasons;}
+    public int getEpisodes(){return episodes;}
+    public void  setEpisodes(int episodes){this.episodes=episodes;}
+    public int[][] getShowProgress() {return showProgress;}
+    public void setShowProgress(int[][] showProgress){this.showProgress=showProgress;}
 }
 
