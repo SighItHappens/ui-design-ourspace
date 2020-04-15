@@ -15,6 +15,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.project.ourspace.R;
+import com.project.ourspace.ShowTvshowActivity;
 
 import java.util.List;
 
@@ -154,7 +155,7 @@ public class TileAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             track.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Intent intent = new Intent();
+                    Intent intent = new Intent(mCtx.getApplicationContext(), ShowTvshowActivity.class);
                     mCtx.startActivity(intent);
                 }
             });

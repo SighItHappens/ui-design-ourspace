@@ -84,7 +84,7 @@ public class CreateTelevisionActivity extends AppCompatActivity {
                 if (arr[0].equals(finalSelection)) {
                     showProgress = new int[5][13];
                     TileList.addItem(
-                        new Tile(3, "User", "04 Apr 2020",
+                        new Tile(3, "Jane", "04 Apr 2020",
                                   arr[0], 5,13,showProgress,"@drawable/breakingbad"));
 
                     // Breaking Bad
@@ -97,7 +97,7 @@ public class CreateTelevisionActivity extends AppCompatActivity {
                     showProgress = new int[10][24];
                     // return seasons = 10, episodes = 24
                     TileList.addItem(
-                            new Tile(3, "User", "04 Apr 2020",
+                            new Tile(3, "Jane", "04 Apr 2020",
                                     arr[1], 10,24,showProgress, "@drawable/friends"));
                     // create TV show instance on Family Wall & return to home page
                     Intent homeScreenIntent = new Intent(getApplicationContext(), MainActivity.class);
@@ -108,7 +108,7 @@ public class CreateTelevisionActivity extends AppCompatActivity {
                     // return seasons = 1, episodes = 11
                     showProgress = new int[1][11];
                     TileList.addItem(
-                            new Tile(3, "User", "04 Apr 2020",
+                            new Tile(3, "Jane", "04 Apr 2020",
                                     arr[2], 1,11,showProgress,"@drawable/planetearth"));
                     // create TV show instance on Family Wall & return to home page
                     Intent homeScreenIntent = new Intent(getApplicationContext(), MainActivity.class);
