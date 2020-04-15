@@ -96,6 +96,7 @@ public class MainActivity extends AppCompatActivity {
         final Intent createNoteIntent = new Intent(this, CreateNoteActivity.class);
         final Intent createTelevisionIntent = new Intent(this, CreateTelevisionActivity.class);
         final Intent createImageIntent = new Intent(this, AddImageActivity.class);
+        final Intent showTvshowIntent = new Intent(this, ShowTvshowActivity.class);
 
         speedDialView.setOnActionSelectedListener(new SpeedDialView.OnActionSelectedListener() {
             @Override
@@ -105,6 +106,10 @@ public class MainActivity extends AppCompatActivity {
                         startActivity(createTelevisionIntent);
 //                        toast.setText("Custom TV action");
 //                        toast.show();
+//                        toast.setText("Custom TV action");
+//                        toast.show();
+//                        showTvshowIntent.putExtra("show_title", "F.R.I.E.N.D.S");
+                        startActivity(showTvshowIntent);
                         return false;
                     case R.id.fab_add_music:
                         toast.setText("Custom Music action");

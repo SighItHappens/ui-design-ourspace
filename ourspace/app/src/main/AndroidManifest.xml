@@ -38,8 +38,16 @@
                 android:value=".MainActivity" />
         </activity>
         <activity
-            android:name=".CreateNoteActivity"
+            android:name=".ShowTvshowActivity"
             android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+        <activity
+            android:name=".CreateNoteActivity"
+            android:parentActivityName=".MainActivity"
+            android:label="@string/create_note">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
