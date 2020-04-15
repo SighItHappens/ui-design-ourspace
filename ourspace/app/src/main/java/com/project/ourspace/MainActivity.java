@@ -39,7 +39,6 @@ public class MainActivity extends AppCompatActivity {
         toolbar.setLogo(R.drawable.ic_blank_24dp);
         setSupportActionBar(toolbar);
 
-
         initSpeedDial();
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);

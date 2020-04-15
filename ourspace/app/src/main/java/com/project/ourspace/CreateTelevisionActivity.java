@@ -1,5 +1,6 @@
 package com.project.ourspace;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.SearchManager;
@@ -34,6 +35,7 @@ public class CreateTelevisionActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         init();
 
         searchButton.setOnClickListener(new View.OnClickListener() {
@@ -93,6 +95,10 @@ public class CreateTelevisionActivity extends AppCompatActivity {
 
     public void init() {
         setContentView(R.layout.activity_create_television);
+
+        ActionBar actionBar = this.getSupportActionBar();
+        actionBar.setTitle("OurSpace - Add New TV Show");
+
         autocomplete = findViewById(R.id.autoCompleteTextView1);
 
         autocomplete.setThreshold(1);

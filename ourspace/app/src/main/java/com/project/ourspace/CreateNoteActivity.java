@@ -1,6 +1,7 @@
 package com.project.ourspace;
 
 import androidx.annotation.LongDef;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelProviders;
@@ -17,7 +18,9 @@ import com.google.android.material.textfield.TextInputLayout;
 import com.project.ourspace.data.LoginDataSource;
 import com.project.ourspace.data.LoginRepository;
 import com.project.ourspace.data.model.LoggedInUser;
+import com.project.ourspace.data.model.TileList;
 import com.project.ourspace.ui.home.HomeViewModel;
+import com.project.ourspace.ui.home.Tile;
 import com.project.ourspace.ui.login.LoginViewModel;
 import com.project.ourspace.ui.login.LoginViewModelFactory;
 
@@ -38,6 +41,9 @@ public class CreateNoteActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_note);
 
+        ActionBar actionBar = this.getSupportActionBar();
+        actionBar.setTitle("OurSpace - Add New Note");
+
         SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm");
         Date today = Calendar.getInstance().getTime();
 
@@ -57,7 +63,7 @@ public class CreateNoteActivity extends AppCompatActivity {
         LoggedInUser userDetails = LoginRepository.getInstance().getUserDetails();
 
         homeViewModel = new ViewModelProvider(this).get(HomeViewModel.class);
-        homeViewModel.addItem(4, userDetails.getDisplayName(), "04 Apr 2020", contentString);
+        TileList.addItem(new Tile(4, userDetails.getDisplayName(), "04 Apr 2020", titleString, contentString));
 
         Log.d(TAG, "createNote: Home View Model Object: " + homeViewModel);
         Log.d(TAG, "Retrieved Note Owner: " + userDetails.getDisplayName());
