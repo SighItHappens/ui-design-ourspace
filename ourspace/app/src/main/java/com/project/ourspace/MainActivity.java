@@ -99,6 +99,7 @@ public class MainActivity extends AppCompatActivity {
         final Intent createMusicIntent = new Intent(this, CreateSong.class);
         final Intent createTelevisionIntent = new Intent(this, CreateTelevisionActivity.class);
         final Intent createImageIntent = new Intent(this, AddImageActivity.class);
+        final Intent showTvshowIntent = new Intent(this, ShowTvshowActivity.class);
 
         speedDialView.setOnActionSelectedListener(new SpeedDialView.OnActionSelectedListener() {
             @Override
@@ -106,8 +107,6 @@ public class MainActivity extends AppCompatActivity {
                 switch (speedDialActionItem.getId()) {
                     case R.id.fab_add_tv_show:
                         startActivity(createTelevisionIntent);
-//                        toast.setText("Custom TV action");
-//                        toast.show();
                         return false;
                     case R.id.fab_add_music:
                         startActivity(createMusicIntent);

@@ -1,4 +1,23 @@
 package com.project.ourspace.ui.home;
+import com.project.ourspace.ShowTvshowActivity;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.app.SearchManager;
+import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.SearchView;
+import android.widget.Space;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import android.content.Context;
 import android.content.Intent;
@@ -15,6 +34,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.project.ourspace.R;
+import com.project.ourspace.ShowTvshowActivity;
 
 import java.util.List;
 
@@ -135,6 +155,8 @@ public class TileAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         private ImageView image;
         private Button track;
 
+
+
         TVShowViewHolder(@NonNull View itemView) {
             super(itemView);
             posted_by = itemView.findViewById(R.id.posted_by);
@@ -142,7 +164,7 @@ public class TileAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             image = itemView.findViewById(R.id.image);
         }
 
-        private void setTVShowDetails(Tile tile) {
+        private void setTVShowDetails(final Tile tile) {
             posted_by.setText(tile.getName());
             time.setText((tile.getTime()));
             int resId = mCtx.getResources().getIdentifier(
@@ -154,7 +176,14 @@ public class TileAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             track.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Intent intent = new Intent();
+                    Intent intent = new Intent(mCtx.getApplicationContext(), ShowTvshowActivity.class);
+                    Bundle mBundle = new Bundle();
+                    mBundle.putSerializable("number_of_season", tile.getSeasons());
+                    mBundle.putSerializable("number_of_episodes", tile.getEpisodes());
+                    mBundle.putSerializable("show_progress", tile.getShowProgress());
+                    mBundle.putSerializable("name_of_show", tile.getShowName());
+
+                    intent.putExtras(mBundle);
                     mCtx.startActivity(intent);
                 }
             });

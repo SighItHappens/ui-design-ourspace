@@ -15,6 +15,13 @@ public class Tile {
     private String artist_name;
     private String song_link;
 
+    // TV Show fields
+    private String showName;
+    private int seasons;
+    private int episodes;
+    private double[][] showProgress;
+
+
     // Note fields
     private String note;
     private String noteTitle;
@@ -37,6 +44,18 @@ public class Tile {
         this.song_name = song_name;
         this.artist_name = artist_name;
         this.song_link = song_link;
+    }
+
+    //Constructor for the TV Show type
+    public Tile(int type, String name, String time,String showName, int seasons, int episodes, double[][] showProgress, String image){
+        this.type = type;
+        this.name = name;
+        this.time = time;
+        this.showName = showName;
+        this.seasons = seasons;
+        this.episodes = episodes;
+        this.showProgress = showProgress;
+        this.image = image;
     }
 
     // Constructor for the note tile
@@ -120,5 +139,14 @@ public class Tile {
     public void setNoteTitle(String noteTitle) {
         this.noteTitle = noteTitle;
     }
+
+    public int getSeasons(){return seasons;}
+    public String getShowName(){return showName;}
+
+    public void  setSeasons(int seasons){this.seasons=seasons;}
+    public int getEpisodes(){return episodes;}
+    public void  setEpisodes(int episodes){this.episodes=episodes;}
+    public double[][] getShowProgress() {return showProgress;}
+    public void setShowProgress(double[][] showProgress){this.showProgress=showProgress;}
 }
 

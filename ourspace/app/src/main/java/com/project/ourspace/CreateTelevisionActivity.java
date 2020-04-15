@@ -2,7 +2,8 @@ package com.project.ourspace;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
-
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
@@ -20,6 +21,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputLayout;
+import com.project.ourspace.data.model.TileList;
+import com.project.ourspace.ui.home.Tile;
 
 public class CreateTelevisionActivity extends AppCompatActivity {
 
@@ -28,6 +31,7 @@ public class CreateTelevisionActivity extends AppCompatActivity {
     AutoCompleteTextView autocomplete;
     ImageView imageView;
     Button searchButton, addButton;
+    double[][] showProgress;
 
     String[] arr = {"Breaking Bad", "Friends", "Planet Earth"};
     String finalSelection = "";
@@ -35,6 +39,8 @@ public class CreateTelevisionActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        ActionBar actionBar = this.getSupportActionBar();
+        actionBar.setTitle("OurSpace - Add New TV Show");
 
         init();
 
@@ -76,18 +82,44 @@ public class CreateTelevisionActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Log.d(TAG, "Confirming selection: " + finalSelection);
+                SimpleDateFormat formatter = new SimpleDateFormat("MMM dd yyyy");
+                Date date = new Date();
                 if (arr[0].equals(finalSelection)) {
+                    showProgress = new double[2][5];
+
+                    TileList.addItem(
+                        new Tile(3, "Jane", formatter.format(date),
+                                  arr[0], 5,13,showProgress,"@drawable/breakingbad"));
+                    Toast.makeText(getApplicationContext(), "TV show created!", Toast.LENGTH_LONG).show();
                     // Breaking Bad
                     // return seasons = 5, episodes = 13
                     // create TV show instance on Family Wall & return to home page
+                    Intent homeScreenIntent = new Intent(getApplicationContext(), MainActivity.class);
+                    startActivity(homeScreenIntent);
                 } else if (arr[1].equals(finalSelection)) {
                     // Friends
+                    showProgress = new double[2][10];
                     // return seasons = 10, episodes = 24
+                    TileList.addItem(
+                            new Tile(3, "Jane", formatter.format(date),
+                                    arr[1], 10,24,showProgress, "@drawable/friends"));
+                    Toast.makeText(getApplicationContext(), "TV show created!", Toast.LENGTH_LONG).show();
                     // create TV show instance on Family Wall & return to home page
+                    Intent homeScreenIntent = new Intent(getApplicationContext(), MainActivity.class);
+                    startActivity(homeScreenIntent);
                 } else if (arr[2].equals(finalSelection)) {
+
                     // Planet Earth
                     // return seasons = 1, episodes = 11
+                    showProgress = new double[2][1];
+
+                    TileList.addItem(
+                            new Tile(3, "Jane", formatter.format(date),
+                                    arr[2], 4,11,showProgress,"@drawable/planetearth"));
+                    Toast.makeText(getApplicationContext(), "TV show created!", Toast.LENGTH_LONG).show();
                     // create TV show instance on Family Wall & return to home page
+                    Intent homeScreenIntent = new Intent(getApplicationContext(), MainActivity.class);
+                    startActivity(homeScreenIntent);
                 }
             }
         });

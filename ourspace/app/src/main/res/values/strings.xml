@@ -6,6 +6,7 @@
     <string name="nav_header_subtitle">brownx452@umn.edu</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
+    <string name="word_create">Create</string>
 
     <string name="menu_home">Home</string>
     <string name="menu_gallery">Gallery</string>
@@ -52,4 +53,8 @@
     <string name="tv_search_label">Enter a show name</string>
     <string name="tv_search_button">Search</string>
     <string name="tv_search_input_error">Please check your search term</string>
+
+    <string name="create_tvshow">Create TV Show</string>
+    <string name="create_note">Create Note</string>
+    <string name="unicode_circle">●</string>
 </resources>
