@@ -9,6 +9,11 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.navigation.NavigationView;
+import com.leinardi.android.speeddial.SpeedDialActionItem;
+import com.leinardi.android.speeddial.SpeedDialOverlayLayout;
+import com.leinardi.android.speeddial.SpeedDialView;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.res.ResourcesCompat;
@@ -18,12 +23,9 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
-import com.google.android.material.navigation.NavigationView;
-import com.leinardi.android.speeddial.SpeedDialActionItem;
-import com.leinardi.android.speeddial.SpeedDialOverlayLayout;
-import com.leinardi.android.speeddial.SpeedDialView;
 import com.project.ourspace.data.LoginRepository;
 import com.project.ourspace.data.model.LoggedInUser;
+import com.project.ourspace.ui.music.CreateSong;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -94,6 +96,7 @@ public class MainActivity extends AppCompatActivity {
 
         final Toast toast = Toast.makeText(getApplicationContext(), "Replace with your own TV action", Toast.LENGTH_SHORT);
         final Intent createNoteIntent = new Intent(this, CreateNoteActivity.class);
+        final Intent createMusicIntent = new Intent(this, CreateSong.class);
         final Intent createTelevisionIntent = new Intent(this, CreateTelevisionActivity.class);
         final Intent createImageIntent = new Intent(this, AddImageActivity.class);
         final Intent showTvshowIntent = new Intent(this, ShowTvshowActivity.class);
@@ -106,8 +109,7 @@ public class MainActivity extends AppCompatActivity {
                         startActivity(createTelevisionIntent);
                         return false;
                     case R.id.fab_add_music:
-                        toast.setText("Custom Music action");
-                        toast.show();
+                        startActivity(createMusicIntent);
                         return false;
                     case R.id.fab_new_note:
                         startActivity(createNoteIntent);

@@ -11,6 +11,23 @@
         android:label="@string/family_wall"
         android:icon="@drawable/ic_group_white_24dp"
         tools:layout="@layout/fragment_home">
+
+        <action
+            android:id="@+id/action_HomeFragment_to_HomeSecondFragment"
+            app:destination="@id/nav_home_second" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_home_second"
+        android:name="com.project.ourspace.ui.music.MusicFragment"
+        android:label="@string/home_second"
+        tools:layout="@layout/fragment_music">
+        <action
+            android:id="@+id/action_HomeSecondFragment_to_HomeFragment"
+            app:destination="@id/nav_home" />
+
+        <argument
+            android:name="myArg"
+            app:argType="string" />
     </fragment>
 
     <fragment
