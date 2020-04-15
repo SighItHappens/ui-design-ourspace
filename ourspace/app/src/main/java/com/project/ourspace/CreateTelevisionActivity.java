@@ -90,6 +90,8 @@ public class CreateTelevisionActivity extends AppCompatActivity {
                     // Breaking Bad
                     // return seasons = 5, episodes = 13
                     // create TV show instance on Family Wall & return to home page
+                    Intent homeScreenIntent = new Intent(getApplicationContext(), MainActivity.class);
+                    startActivity(homeScreenIntent);
                 } else if (arr[1].equals(finalSelection)) {
                     // Friends
                     showProgress = new int[10][24];
@@ -98,6 +100,8 @@ public class CreateTelevisionActivity extends AppCompatActivity {
                             new Tile(3, "User", "04 Apr 2020",
                                     arr[1], 10,24,showProgress));
                     // create TV show instance on Family Wall & return to home page
+                    Intent homeScreenIntent = new Intent(getApplicationContext(), MainActivity.class);
+                    startActivity(homeScreenIntent);
                 } else if (arr[2].equals(finalSelection)) {
 
                     // Planet Earth
@@ -107,6 +111,8 @@ public class CreateTelevisionActivity extends AppCompatActivity {
                             new Tile(3, "User", "04 Apr 2020",
                                     arr[2], 1,11,showProgress));
                     // create TV show instance on Family Wall & return to home page
+                    Intent homeScreenIntent = new Intent(getApplicationContext(), MainActivity.class);
+                    startActivity(homeScreenIntent);
                 }
             }
         });
