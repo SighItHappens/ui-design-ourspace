@@ -1,71 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.music.CreateSong">
 
-        <EditText
-            android:id="@+id/edit_single_songname"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/edit_single_songname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="32dp"
+        android:hint="Song Name"
+        app:boxBackgroundColor="@null"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            android:textSize="20sp"
-            android:theme="@style/AppTheme"
-            app:layout_constraintTop_toTopOf="parent"
-            android:autofillHints=""
-            android:inputType="text"
-            android:hint="Song Name"
-            >
-        </EditText>
+            android:layout_height="wrap_content" />
 
-        <EditText
-            android:id="@+id/edit_single_artistname"
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/edit_single_artistname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="8dp"
+        android:hint="Artist Name"
+        app:boxBackgroundColor="@null"
+        app:layout_constraintTop_toBottomOf="@id/edit_single_songname">
+
+        <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="40dp"
-            android:layout_marginEnd="8dp"
-            android:textSize="20sp"
-            android:theme="@style/AppTheme"
-            android:hint="Artist Name"
-            app:layout_constraintTop_toTopOf="@id/edit_single_songname"
-            android:autofillHints=""
-            android:inputType="text"
-            >
-        </EditText>
+            android:layout_height="wrap_content" />
 
-        <EditText
-            android:id="@+id/edit_single_songurl"
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/edit_single_songurl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="8dp"
+        android:hint="(Optional) Song URL"
+        app:boxBackgroundColor="@null"
+        app:layout_constraintTop_toBottomOf="@id/edit_single_artistname">
+
+        <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="40dp"
-            android:layout_marginEnd="8dp"
-            android:textSize="20sp"
-            android:theme="@style/AppTheme"
-            android:hint="(Optional) Song URL"
-            app:layout_constraintTop_toTopOf="@id/edit_single_artistname"
-            android:autofillHints=""
-            android:inputType="text"
-            >
-        </EditText>
+            android:layout_height="wrap_content" />
 
+    </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/create_single_song"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="createSingleSong"
-            android:text="Create"
-            android:textColor="@color/material_white_1000"
-            app:icon="@drawable/ic_add_black_24dp"
-            app:iconTint="@color/material_white_1000"
-            app:layout_constraintTop_toBottomOf="@id/edit_single_songurl"
-            app:layout_constraintEnd_toEndOf="parent" />
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/create_single_song"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="32dp"
+        android:onClick="createSingleSong"
+        android:text="Create"
+        android:textColor="@color/material_white_1000"
+        app:icon="@drawable/ic_add_black_24dp"
+        app:iconTint="@color/material_white_1000"
+        app:layout_constraintTop_toBottomOf="@id/edit_single_songurl" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
