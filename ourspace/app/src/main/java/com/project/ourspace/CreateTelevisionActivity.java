@@ -90,7 +90,7 @@ public class CreateTelevisionActivity extends AppCompatActivity {
                     TileList.addItem(
                         new Tile(3, "Jane", formatter.format(date),
                                   arr[0], 5,13,showProgress,"@drawable/breakingbad"));
-
+                    Toast.makeText(getApplicationContext(), "TV show created!", Toast.LENGTH_LONG).show();
                     // Breaking Bad
                     // return seasons = 5, episodes = 13
                     // create TV show instance on Family Wall & return to home page
@@ -103,6 +103,7 @@ public class CreateTelevisionActivity extends AppCompatActivity {
                     TileList.addItem(
                             new Tile(3, "Jane", formatter.format(date),
                                     arr[1], 10,24,showProgress, "@drawable/friends"));
+                    Toast.makeText(getApplicationContext(), "TV show created!", Toast.LENGTH_LONG).show();
                     // create TV show instance on Family Wall & return to home page
                     Intent homeScreenIntent = new Intent(getApplicationContext(), MainActivity.class);
                     startActivity(homeScreenIntent);
@@ -115,6 +116,7 @@ public class CreateTelevisionActivity extends AppCompatActivity {
                     TileList.addItem(
                             new Tile(3, "Jane", formatter.format(date),
                                     arr[2], 4,11,showProgress,"@drawable/planetearth"));
+                    Toast.makeText(getApplicationContext(), "TV show created!", Toast.LENGTH_LONG).show();
                     // create TV show instance on Family Wall & return to home page
                     Intent homeScreenIntent = new Intent(getApplicationContext(), MainActivity.class);
                     startActivity(homeScreenIntent);
