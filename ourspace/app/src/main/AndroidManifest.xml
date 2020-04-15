@@ -38,18 +38,18 @@
                 android:value=".MainActivity" />
         </activity>
         <activity
-            android:name=".ChangeTvshowProgressActivity"
-            android:parentActivityName=".ShowTvshowActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".ShowTvshowActivity" />
-        </activity>
-        <activity
             android:name=".ShowTvshowActivity"
             android:parentActivityName=".MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
+        </activity>
+        <activity
+            android:name=".ChangeTvshowProgressActivity"
+            android:parentActivityName=".ShowTvshowActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ShowTvshowActivity" />
         </activity>
         <activity
             android:name=".CreateNoteActivity"
