@@ -1,91 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.google.android.material.card.MaterialCardView
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/card"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="8dp"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    >
-
+    android:layout_margin="8dp">
 
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-
-
-
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
             android:layout_margin="8dp"
-            >
+            android:orientation="horizontal">
+
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/avatar"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-
-                android:src="@drawable/tvshow"
-
-                />
+                android:src="@drawable/tvshow" />
 
             <TextView
                 android:id="@+id/posted_by"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
+                android:paddingLeft="16dp"
+                android:gravity="center_vertical"
+                android:textAppearance="?attr/textAppearanceHeadline6" />
 
-                android:padding="15dp"
-                android:textAppearance="?attr/textAppearanceHeadline6"/>
-            <!--                android:textColor="@android:color/black"-->
-            <!--                android:textStyle="bold"-->
-            <!--                android:textSize="24sp" -->
             <TextView
                 android:id="@+id/date"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:gravity="right"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:gravity="right|center_vertical"
                 android:textSize="12sp" />
 
         </LinearLayout>
-            <ImageView
-                android:id="@+id/image"
-                android:layout_width="match_parent"
-                android:layout_height="300dp"
-                android:scaleType="fitCenter"
-                android:contentDescription="@string/default_image_view" />
 
-
-
-
-
-
-
-
+        <ImageView
+            android:id="@+id/image"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:layout_marginHorizontal="16dp"
+            android:contentDescription="@string/default_image_view"
+            android:scaleType="fitCenter" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/track"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_marginStart="10dp"
-            android:padding="15dp"
-            android:text="Track"
-            style="?attr/borderlessButtonStyle"/>
-
-
-
-
-
-
-
-
-
-
-
+            android:layout_marginHorizontal="8dp"
+            android:layout_marginVertical="16dp"
+            android:text="Track" />
     </LinearLayout>
 </com.google.android.material.card.MaterialCardView>

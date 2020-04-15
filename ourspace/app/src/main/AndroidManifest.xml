@@ -40,6 +40,13 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".CreateTelevisionActivity"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+        <activity
             android:name=".CreateNoteActivity"
             android:parentActivityName=".MainActivity">
             <meta-data

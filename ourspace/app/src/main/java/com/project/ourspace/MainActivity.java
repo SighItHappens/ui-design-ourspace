@@ -41,7 +41,6 @@ public class MainActivity extends AppCompatActivity {
         toolbar.setLogo(R.drawable.ic_blank_24dp);
         setSupportActionBar(toolbar);
 
-
         initSpeedDial();
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
@@ -90,14 +89,15 @@ public class MainActivity extends AppCompatActivity {
         SpeedDialOverlayLayout overlay = findViewById(R.id.speedDialOverlay);
         speedDialView.setOverlayLayout(overlay);
 
-        createSpeedDialItem(speedDialView, R.id.fab_add_tv_show, R.drawable.ic_videocam_black_24dp, R.string.add_tv_show, R.color.primaryDarkColor, R.color.material_white_1000);
+        createSpeedDialItem(speedDialView, R.id.fab_add_tv_show, R.drawable.tvshow, R.string.add_tv_show, R.color.primaryDarkColor, R.color.material_white_1000);
         createSpeedDialItem(speedDialView, R.id.fab_add_music, R.drawable.ic_music_note_white_24dp, R.string.add_music, R.color.primaryDarkColor, R.color.material_white_1000);
-        createSpeedDialItem(speedDialView, R.id.fab_new_note, R.drawable.ic_note_white_24dp, R.string.add_note, R.color.primaryDarkColor, R.color.material_white_1000);
-        createSpeedDialItem(speedDialView, R.id.fab_new_image, R.drawable.ic_menu_camera, R.string.add_image, R.color.primaryDarkColor, R.color.material_white_1000);
+        createSpeedDialItem(speedDialView, R.id.fab_new_note, R.drawable.note_icon, R.string.add_note, R.color.primaryDarkColor, R.color.material_white_1000);
+        createSpeedDialItem(speedDialView, R.id.fab_new_image, R.drawable.ic_image_black_24dp, R.string.add_image, R.color.primaryDarkColor, R.color.material_white_1000);
 
         final Toast toast = Toast.makeText(getApplicationContext(), "Replace with your own TV action", Toast.LENGTH_SHORT);
         final Intent createNoteIntent = new Intent(this, CreateNoteActivity.class);
         final Intent createMusicIntent = new Intent(this, CreateSong.class);
+        final Intent createTelevisionIntent = new Intent(this, CreateTelevisionActivity.class);
         final Intent createImageIntent = new Intent(this, AddImageActivity.class);
 
         speedDialView.setOnActionSelectedListener(new SpeedDialView.OnActionSelectedListener() {
@@ -105,8 +105,9 @@ public class MainActivity extends AppCompatActivity {
             public boolean onActionSelected(SpeedDialActionItem speedDialActionItem) {
                 switch (speedDialActionItem.getId()) {
                     case R.id.fab_add_tv_show:
-                        toast.setText("Custom TV action");
-                        toast.show();
+                        startActivity(createTelevisionIntent);
+//                        toast.setText("Custom TV action");
+//                        toast.show();
                         return false;
                     case R.id.fab_add_music:
                         startActivity(createMusicIntent);

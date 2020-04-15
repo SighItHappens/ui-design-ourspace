@@ -16,7 +16,7 @@ public class LoginDataSource {
                 LoggedInUser fakeUser =
                         new LoggedInUser(
                                 java.util.UUID.randomUUID().toString(),
-                                "Jane Doe",
+                                "Jane",
                                 "jane.doe@umn.edu");
                 return new Result.Success<>(fakeUser);
             } else {

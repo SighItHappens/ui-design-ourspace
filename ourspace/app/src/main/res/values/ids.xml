@@ -19,10 +19,5 @@
     <item name="fab_add_tv_show" type="id" />
     <item name="fab_add_music" type="id" />
     <item name="fab_new_note" type="id" />
-    <item name="fab_long_label" type="id" />
-    <item name="fab_custom_theme" type="id" />
-    <item name="fab_add_action" type="id" />
-    <item name="fab_replace_action" type="id" />
-    <item name="fab_remove_action" type="id" />
     <item name="fab_new_image" type="id" />
 </resources>
