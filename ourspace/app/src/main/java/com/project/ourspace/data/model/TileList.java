@@ -13,7 +13,7 @@ public class TileList {
     }
 
     public static void addItem(Tile tile) {
-        TileList.tileList.add(tile);
+        TileList.tileList.add(0, tile);
     }
 
     public static List<Tile> getTileList() {
