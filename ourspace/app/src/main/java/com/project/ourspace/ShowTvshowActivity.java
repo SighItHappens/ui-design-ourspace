@@ -52,7 +52,8 @@ public class ShowTvshowActivity extends AppCompatActivity {
 
         members[0] = "Me"; members[1] = "Sister";
 
-        double progresses[][] = new double[2][3];
+        //progresses[users][seasons]
+        double progresses[][] = new double[2][number_of_season];
         for (int i=0; i<number_of_member; i++) {
             for (int j=0; j<number_of_season; j++) {
                 progresses[i][j] = 0;

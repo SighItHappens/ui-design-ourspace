@@ -177,14 +177,11 @@ public class TileAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
                 @Override
                 public void onClick(View view) {
                     Intent intent = new Intent(mCtx.getApplicationContext(), ShowTvshowActivity.class);
-<<<<<<< HEAD
-=======
                     Bundle mBundle = new Bundle();
                     mBundle.putSerializable("number_of_season", tile.getSeasons());
                     mBundle.putSerializable("number_of_episodes", tile.getEpisodes());
                     mBundle.putSerializable("show_progress", tile.getShowProgress());
                     intent.putExtras(mBundle);
->>>>>>> ff6f6ebc71f728fca6d9064e94a154122284ad17
                     mCtx.startActivity(intent);
                 }
             });

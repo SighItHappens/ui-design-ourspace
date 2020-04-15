@@ -47,7 +47,7 @@ public class HomeViewModel extends ViewModel {
             tileList.add(
 
                     new Tile(3, "User", "04 Apr 2020",
-                            "F.R.I.E.N.D.S", 1,11,new int[12][24],"@drawable/friends"));
+                            "F.R.I.E.N.D.S", 3,11,new int[12][24],"@drawable/friends"));
         }
         mList.setValue(tileList);
 
