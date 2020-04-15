@@ -39,7 +39,13 @@ public class CreateSong extends AppCompatActivity {
         // Try to create a url from the string: If it's not valid, then don't include a link.
         try {
             URL formatted_songUrl = new URL(songUrl.getText().toString());
-            songUrlString = String.format("<a href=%s>Link</a>", songUrl.getText().toString());
+            String target = songUrl.getText().toString();
+            if (target.contains("spotify.com")){
+                songUrlString = String.format("<a href=%s>Spotify</a>", target);
+            }
+            else {
+                songUrlString = String.format("<a href=%s>Link</a>", target);
+            }
         } catch (MalformedURLException e) {
             songUrlString = null;
         }
